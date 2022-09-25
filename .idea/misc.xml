@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/drawable/burger_foreground.xml" value="0.1375" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/font/amatic_sc.xml" value="0.30572916666666666" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_home.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_main.xml" value="0.19384057971014493" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/header.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/home_activity.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/toolbar.xml" value="0.19384057971014493" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/menu/main_menu.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

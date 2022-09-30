@@ -8,8 +8,9 @@
     android:padding="20dp">
 
     <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"/>
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/mycloset"/>
 
     <TextView
         android:layout_width="wrap_content"

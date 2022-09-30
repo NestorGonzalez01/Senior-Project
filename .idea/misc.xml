@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/drawable/burger.xml" value="0.2315" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/drawable/burger_foreground.xml" value="0.1375" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/drawable/camera_icon.xml" value="0.2315" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/drawable/closet_icon.xml" value="0.2315" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/drawable/create_icon.xml" value="0.2315" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/font/amatic_sc.xml" value="0.30572916666666666" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/actionbar.xml" value="0.11" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_create_outfit.xml" value="0.12715298885511653" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_home.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_main.xml" value="0.19384057971014493" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_style_me.xml" value="0.1339918946301925" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_view_closet.xml" value="0.1339918946301925" />
+        <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/activity_view_outfits.xml" value="0.1" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/header.xml" value="0.24230072463768115" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/home_activity.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/nstrg/OneDrive/Documents/GitHub/Senior-Project/app/src/main/res/layout/toolbar.xml" value="0.19384057971014493" />

@@ -62,22 +62,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 break;
             case R.id.nav_closet:
-                Intent intent = new Intent(HomeActivity.this, ViewCloset.class);
-                startActivity(intent);
+                Intent intent_closet = new Intent(HomeActivity.this, ViewCloset.class);
+                startActivity(intent_closet);
                 break;
             case R.id.nav_outfit:
-                Intent intent2 = new Intent(HomeActivity.this, ViewOutfits.class);
-                startActivity(intent2);
+                Intent intent_outfit = new Intent(HomeActivity.this, ViewOutfits.class);
+                startActivity(intent_outfit);
                 break;
             case R.id.nav_create:
-                Intent intent3 = new Intent(HomeActivity.this, CreateOutfit.class);
-                startActivity(intent3);
+                Intent intent_create = new Intent(HomeActivity.this, CreateOutfit.class);
+                startActivity(intent_create);
                 break;
             case R.id.nav_add:
                 break;
             case R.id.nav_style:
-                Intent intent5 = new Intent(HomeActivity.this, StyleMe.class);
-                startActivity(intent5);
+                Intent intent_style = new Intent(HomeActivity.this, StyleMe.class);
+                startActivity(intent_style);
                 break;
         }
 

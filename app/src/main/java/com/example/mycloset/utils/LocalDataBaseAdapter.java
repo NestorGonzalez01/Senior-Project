@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.*;
+//import android.support.*;
 //import android.support.annotation.NonNull;
 //import android.support.v7.app.AlertDialog;
 //import android.support.v7.widget.RecyclerView;
@@ -51,16 +51,16 @@ public class LocalDataBaseAdapter extends RecyclerView.Adapter {
 
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int i) { //final int i error
-        myViewHolder.newsImage.setImageBitmap(getBitmapFromEncodedString(singleRowArrayList.get(i).image));
-        myViewHolder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deletedata(i,singleRowArrayList);
-            }
-        });
-    }
+//    @Override
+//    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int i) { //final int i error
+//        myViewHolder.newsImage.setImageBitmap(getBitmapFromEncodedString(singleRowArrayList.get(i).image));
+//        myViewHolder.delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                deletedata(i,singleRowArrayList);
+//            }
+//        });
+//    }
 
     @Override
     public int getItemCount() {
@@ -77,28 +77,28 @@ public class LocalDataBaseAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void deletedata(final int position, final ArrayList singleRowArrayList){
-        new AlertDialog.Builder(context)
-                .setIcon(R.drawable.defaultimage)
-                .setTitle("Delete result")
-                .setMessage("Are you sure you want delete this result?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        /* This is where deletions should be handled */
-                        myDatabase.deleteEntry(singleRowArrayList.get(position).getUid());
-                        singleRowArrayList.remove(position);
-                        notifyItemRemoved(position);
-                        notifyDataSetChanged();
-                        myDatabase.close();
-                        //((MainActivity) context).loadFragment(new LocalFragment(), true);
-
-                    }
-
-                })
-                .setNegativeButton("No", null)
-                .show();
-    }
+//    public void deletedata(final int position, final ArrayList singleRowArrayList){
+//        new AlertDialog.Builder(context)
+//                .setIcon(R.drawable.defaultimage)
+//                .setTitle("Delete result")
+//                .setMessage("Are you sure you want delete this result?")
+//                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        /* This is where deletions should be handled */
+//                        myDatabase.deleteEntry(singleRowArrayList.get(position).getUid());
+//                        singleRowArrayList.remove(position);
+//                        notifyItemRemoved(position);
+//                        notifyDataSetChanged();
+//                        myDatabase.close();
+//                        //((MainActivity) context).loadFragment(new LocalFragment(), true);
+//
+//                    }
+//
+//                })
+//                .setNegativeButton("No", null)
+//                .show();
+//    }
 
     private Bitmap getBitmapFromEncodedString(String encodedString){
 

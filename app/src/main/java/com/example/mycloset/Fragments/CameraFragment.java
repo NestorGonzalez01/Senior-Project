@@ -33,11 +33,6 @@ import com.example.mycloset.Camera;
 import com.example.mycloset.utils.DataBaseHandler;
 import java.io.ByteArrayOutputStream;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CameraFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CameraFragment extends Fragment {
 
     private static final int CAMERA_REQUEST = 1888;
@@ -48,10 +43,13 @@ public class CameraFragment extends Fragment {
     DataBaseHandler databaseHandler;
     private SQLiteDatabase db;
     Bitmap theImage;
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_camera,container,false); //!!!!!!!!fragment_camera?
+        View view = inflater.inflate(R.layout.fragment_camera,container,false);
 
 
         // imageView =view. findViewById(R.id.imageView1);
@@ -59,23 +57,34 @@ public class CameraFragment extends Fragment {
         text1 = view.findViewById(R.id.text1);
         databaseHandler = new DataBaseHandler(getContext());
 
-        text.setOnClickListener(
-                new View.OnClickListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.M)
-                    @Override
-                    public void onClick(View v) {
-                        if (getActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-                        {
-                            requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
-                        }
-                        else
-                        {
-                            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+        if (getActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+        }
+        else
+        {
+            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(cameraIntent, CAMERA_REQUEST);
 
-                        }
-                    }
-                });
+        }
+
+//        text.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @RequiresApi(api = Build.VERSION_CODES.M)
+//                    @Override
+//                    public void onClick(View v) {
+//                        if (getActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+//                        {
+//                            requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+//                        }
+//                        else
+//                        {
+//                            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//
+//                        }
+//                    }
+//                });
 
         text1.setOnClickListener(new View.OnClickListener() {
             @Override

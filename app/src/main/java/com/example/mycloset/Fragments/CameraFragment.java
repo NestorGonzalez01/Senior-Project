@@ -68,23 +68,23 @@ public class CameraFragment extends Fragment {
 
         }
 
-//        text.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @RequiresApi(api = Build.VERSION_CODES.M)
-//                    @Override
-//                    public void onClick(View v) {
-//                        if (getActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-//                        {
-//                            requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
-//                        }
-//                        else
-//                        {
-//                            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-//                            startActivityForResult(cameraIntent, CAMERA_REQUEST);
-//
-//                        }
-//                    }
-//                });
+        text.setOnClickListener(
+                new View.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.M)
+                    @Override
+                    public void onClick(View v) {
+                        if (getActivity().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+                        {
+                            requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+                        }
+                        else
+                        {
+                            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+                        }
+                    }
+                });
 
         text1.setOnClickListener(new View.OnClickListener() {
             @Override

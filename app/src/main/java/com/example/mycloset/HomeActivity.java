@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_NoActionBar);
         setContentView(R.layout.activity_home);
 
         //Hooks

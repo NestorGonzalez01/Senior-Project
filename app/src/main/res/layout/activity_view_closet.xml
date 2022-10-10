@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonTops"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonBottoms"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:layout_alignParentTop="true"
@@ -32,7 +32,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonShoes"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
@@ -43,7 +43,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonAccess"
         android:layout_width="300dp"
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
@@ -65,6 +65,18 @@
         android:text="MyCloset"
         android:textColor="#393838"
         android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="9dp"
+        android:background="#BDBCBC"
+        android:text="Back"
+        tools:ignore="TextContrastCheck" />
 
 
 </RelativeLayout>

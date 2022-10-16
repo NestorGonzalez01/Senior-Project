@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent_add);
                 break;
             case R.id.nav_style:
-                Intent intent_style = new Intent(HomeActivity.this, StyleMe.class);
+                Intent intent_style = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent_style);
                 break;
         }

@@ -17,19 +17,38 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "closet.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String CREATE_TABLE =
-            "CREATE TABLE " + DBContract.ClothingEntry.TABLE_NAME + " (" +
-                    DBContract.ClothingEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
-                    DBContract.ClothingEntry.COLUMN_IMAGE + TEXT_TYPE + COMMA_SEP +
-                    DBContract.ClothingEntry.COLUMN_TITLE + TEXT_TYPE + " )";
+//    private static final String CREATE_TABLE =
+//            "CREATE TABLE " + DBContract.ClothingEntry.TABLE_NAME + " (" +
+//                    DBContract.ClothingEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
+//                    DBContract.ClothingEntry.COLUMN_IMAGE + TEXT_TYPE + COMMA_SEP +
+//                    DBContract.ClothingEntry.COLUMN_TITLE + TEXT_TYPE + " )";
+
+    public String createTable(String table) {
+        final String CREATE_TABLE =
+                "CREATE TABLE " + table + " (" +
+                        DBContract.ClothingEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
+                        DBContract.ClothingEntry.COLUMN_IMAGE + TEXT_TYPE + COMMA_SEP +
+                        DBContract.ClothingEntry.COLUMN_TITLE + TEXT_TYPE + " )";
+        return CREATE_TABLE;
+    }
 
     public DBHandler(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        Log.d("Test", "Testing");
     }
+
+//    @Override
+//    public void onCreate(SQLiteDatabase db) {
+//        db.execSQL(CREATE_TABLE);
+//    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE);
+        db.execSQL(createTable(DBContract.ClothingEntry.TABLE_TOPS));
+        db.execSQL(createTable(DBContract.ClothingEntry.TABLE_BOTTOMS));
+        db.execSQL(createTable(DBContract.ClothingEntry.TABLE_SHOES));
+        db.execSQL(createTable(DBContract.ClothingEntry.TABLE_ACCESSORIES));
     }
 
     @Override
@@ -41,7 +60,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         return db.query(
-                DBContract.ClothingEntry.TABLE_NAME,
+                DBContract.ClothingEntry.TABLE_ACCESSORIES,
                 null,
                 null,
                 null,
@@ -51,13 +70,37 @@ public class DBHandler extends SQLiteOpenHelper {
         );
     }
 
-    public boolean addClothing(ImageManager imageManager) {
+//    public boolean addClothing(ImageManager imageManager) {
+//        SQLiteDatabase db = getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(DBContract.ClothingEntry.COLUMN_TITLE, imageManager.getTitle());
+//        values.put(DBContract.ClothingEntry.COLUMN_IMAGE, imageManager.getImageString());
+//
+//        return db.insert(DBContract.ClothingEntry.TABLE_NAME, null, values) != -1;
+//    }
+
+    public boolean addClothing(ImageManager imageManager, int dbName) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBContract.ClothingEntry.COLUMN_TITLE, imageManager.getTitle());
         values.put(DBContract.ClothingEntry.COLUMN_IMAGE, imageManager.getImageString());
 
-        return db.insert(DBContract.ClothingEntry.TABLE_NAME, null, values) != -1;
+        String TABLE_NAME = null;
+
+        switch (dbName) {
+            case 0: TABLE_NAME = DBContract.ClothingEntry.TABLE_TOPS;
+            break;
+            case 1: TABLE_NAME = DBContract.ClothingEntry.TABLE_BOTTOMS;
+            break;
+            case 2: TABLE_NAME = DBContract.ClothingEntry.TABLE_SHOES;
+            break;
+            case 3: TABLE_NAME = DBContract.ClothingEntry.TABLE_ACCESSORIES;
+            break;
+        }
+
+        Log.d("Test", TABLE_NAME);
+
+        return db.insert(TABLE_NAME, null, values) != -1;
     }
 
 }

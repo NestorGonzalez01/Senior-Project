@@ -28,7 +28,7 @@
         android:text="@string/nav_camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
+<!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-
+-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -60,14 +60,14 @@
             android:id="@+id/new_top"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:onClick="cancel"
+            android:onClick="tops"
             android:text="@string/to_tops"
             android:layout_height="wrap_content" />
 
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:onClick="save"
+            android:onClick="bottoms"
             android:text="@string/to_bottoms"
             android:layout_height="wrap_content" />
 
@@ -82,17 +82,24 @@
             android:id="@+id/new_shoes"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:onClick="cancel"
+            android:onClick="shoes"
             android:text="@string/to_shoes"
             android:layout_height="wrap_content" />
 
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:onClick="save"
+            android:onClick="accessories"
             android:text="@string/to_accessories"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/new_memory_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="cancel"
+        android:text="@string/nav_cancel" />
 
 </LinearLayout>

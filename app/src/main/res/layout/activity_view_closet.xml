@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="450dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/closet"
+    tools:context=".ViewCloset">
+
+
+    <Button
+        android:id="@+id/buttonTops"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="143dp"
+        android:backgroundTint="#A6A3A3"
+        android:rotationY="0"
+        android:text="Tops"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonBottoms"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="#A6A3A3"
+        android:text="Bottoms"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonShoes"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="228dp"
+        android:backgroundTint="#A6A3A3"
+        android:text="Shoes"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonAccess"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="124dp"
+        android:backgroundTint="#A6A3A3"
+        android:text="Accessories"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="44dp"
+        android:text="MyCloset"
+        android:textColor="#393838"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="9dp"
+        android:background="#BDBCBC"
+        android:text="Back"
+        tools:ignore="TextContrastCheck" />
+
+
+</RelativeLayout>

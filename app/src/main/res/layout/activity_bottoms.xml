@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:ignore="SpeakableTextPresentCheck"
+    tools:layout_editor_absoluteY="1dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DAD6D6"
+        tools:context=".Bottoms">
+
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="323dp"
+            android:background="#DAD6D6"
+            android:text="@string/EmailBack"
+            android:textColor="#795548"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageBottom1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="102dp"
+            android:contentDescription="@string/EmailBottoms1"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bottoms1"
+            tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck" />
+
+        <ImageButton
+            android:id="@+id/imageBottom2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="324dp"
+            android:contentDescription="@string/EmailBottoms1"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bottoms2"
+            tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck" />
+
+        <ImageButton
+            android:id="@+id/imageBottom3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="552dp"
+            android:contentDescription="@string/EmailBottoms1"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bottoms3"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageBottom4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="784dp"
+            android:contentDescription="@string/EmailBottoms1"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bottoms4"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageBottom5"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="1016dp"
+            android:contentDescription="@string/EmailBottoms1"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bottoms6"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

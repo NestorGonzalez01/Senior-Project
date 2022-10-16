@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="@string/EmailTop"
+    android:fillViewport="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:ignore="SpeakableTextPresentCheck"
+    tools:layout_editor_absoluteY="1dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DAD6D6"
+        android:contentDescription="@string/EmailTopp"
+        tools:context=".Tops">
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="323dp"
+            android:background="#DAD6D6"
+            android:text="@string/EmailBack"
+            android:textColor="#795548"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/EmailTome"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top1"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="1020dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top2"
+            android:contentDescription="@string/todo4" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="796dp"
+            android:layout_marginBottom="24dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top3"
+            android:contentDescription="@string/todo3" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="540dp"
+            android:layout_marginBottom="56dp"
+            android:contentDescription="@string/EmailTop4"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/top4" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="308dp"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="@string/EmailTop5"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/tops5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

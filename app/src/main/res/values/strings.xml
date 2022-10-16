@@ -13,4 +13,17 @@
     <string name="to_accessories">Accessories</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="EmailTome">Email</string>
+    <string name="EmailTop">Email</string>
+    <string name="EmailBack">Back</string>
+    <string name="EmailTopp">Email</string>
+    <string name="EmailTop4">Email</string>
+    <string name="EmailTop5">Email</string>
+    <string name="todo3">TODO</string>
+    <string name="todo4">TODO</string>
+    <string name="EmailBottoms1">Email</string>
+    <string name="EmailShoes">email</string>
+    <string name="EmailShoes1">email</string>
+    <string name="EmailAcess">email</string>
+    <string name="EmailAccess2">email</string>
 </resources>

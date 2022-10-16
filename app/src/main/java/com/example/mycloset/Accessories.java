@@ -11,36 +11,22 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 
-public class Tops extends AppCompatActivity {
-    ImageButton imgButton;
+public class Accessories extends AppCompatActivity {
     public Button button;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tops);
+        setContentView(R.layout.activity_accessories);
 
-        button = (Button) findViewById(R.id.button8);
+        button = (Button) findViewById(R.id.buttonAccessBack);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Tops.this, ViewCloset.class);
+                Intent intent = new Intent(Accessories.this, ViewCloset.class);
                 startActivity(intent);
             }
         });
-
-        imgButton = (ImageButton) findViewById(R.id.imageButton);
-        imgButton.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
     }
-
-
 }

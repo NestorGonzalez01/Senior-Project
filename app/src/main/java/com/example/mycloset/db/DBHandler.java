@@ -49,6 +49,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_BOTTOMS));
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_SHOES));
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_ACCESSORIES));
+        db.execSQL(createTable(DBContract.ClothingEntry.TABLE_CLOSET));
     }
 
     @Override
@@ -95,6 +96,8 @@ public class DBHandler extends SQLiteOpenHelper {
             case 2: TABLE_NAME = DBContract.ClothingEntry.TABLE_SHOES;
             break;
             case 3: TABLE_NAME = DBContract.ClothingEntry.TABLE_ACCESSORIES;
+            break;
+            case 4: TABLE_NAME = DBContract.ClothingEntry.TABLE_CLOSET;
             break;
         }
 

@@ -25,7 +25,7 @@ public class Tops extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Tops.this, ViewOutfits.class);
+                Intent intent = new Intent(Tops.this, CreateOutfit.class);
                 intent.putExtra("resId", R.drawable.top1);
                 startActivity(intent);
             }

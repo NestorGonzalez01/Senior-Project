@@ -29,12 +29,22 @@ public class CreateOutfit extends AppCompatActivity {
             }
         });
 
+        //Adding Action to Save
+        button = (Button) findViewById(R.id.button3);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreateOutfit.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Adding Action to Add From Closet
         imageView3 = findViewById(R.id.imageView3);
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreateOutfit.this, AddFromCloset.class);
+                Intent intent = new Intent(CreateOutfit.this, ViewCloset.class);
                 startActivity(intent);
             }
         });

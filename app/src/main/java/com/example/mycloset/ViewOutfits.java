@@ -22,7 +22,6 @@ public class ViewOutfits extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_outfits);
-        image = findViewById(R.id.imageView2);
 
         button = (Button) findViewById(R.id.buttonBack1);
         button.setOnClickListener(new View.OnClickListener() {

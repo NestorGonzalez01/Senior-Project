@@ -7,7 +7,7 @@
     android:background="#DAD6D6"
     tools:context=".ViewOutfits">
 
-    
+
 
     <Button
         android:id="@+id/buttonBack1"

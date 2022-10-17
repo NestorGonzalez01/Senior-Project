@@ -24,8 +24,6 @@ public class Tops extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tops);
-         img  = (ImageView) findViewById(R.id.imageView2);
-
         button = (Button) findViewById(R.id.button8);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

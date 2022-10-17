@@ -8,9 +8,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.example.mycloset.db.DBHandler;
+import com.example.mycloset.utility.ImageManager;
 import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NonNls;
@@ -85,5 +90,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout.closeDrawer((GravityCompat.START));
         return true;
+    }
+
+    public void camera(View view) {
+        Intent intent_add = new Intent(HomeActivity.this, Camera.class);
+        startActivity(intent_add);
     }
 }

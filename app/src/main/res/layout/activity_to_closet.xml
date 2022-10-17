@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/new_clothing"
+        android:src="@drawable/defaultimage"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <EditText
+        android:id="@+id/new_memory_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/clothe_name"/>
+
+    <Button
+        android:onClick="openGallery"
+        android:text="@string/nav_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="openCamera"
+        android:text="@string/nav_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+<!--
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/new_memory_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="cancel"
+            android:text="@string/nav_cancel"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="save"
+            android:text="@string/nav_save"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/new_top"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="tops"
+            android:text="@string/to_tops"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="bottoms"
+            android:text="@string/to_bottoms"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/new_shoes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="shoes"
+            android:text="@string/to_shoes"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="accessories"
+            android:text="@string/to_accessories"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/new_memory_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="cancel"
+        android:text="@string/nav_cancel" />
+
+</LinearLayout>

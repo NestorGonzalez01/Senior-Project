@@ -38,7 +38,6 @@ public class CameraFragment extends Fragment {
     private static final int CAMERA_REQUEST = 1888;
     TextView text,text1;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
-    //Bitmap photo;
     String photo;
     DataBaseHandler databaseHandler;
     private SQLiteDatabase db;
@@ -51,8 +50,6 @@ public class CameraFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_camera,container,false);
 
-
-        // imageView =view. findViewById(R.id.imageView1);
         text = view.findViewById(R.id.text);
         text1 = view.findViewById(R.id.text1);
         databaseHandler = new DataBaseHandler(getContext());
@@ -86,12 +83,12 @@ public class CameraFragment extends Fragment {
                     }
                 });
 
-        text1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((Camera) getActivity()).loadFragment(new LocalFragment(), true);
-            }
-        });
+//        text1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((Camera) getActivity()).loadFragment(new LocalFragment(), true);
+//            }
+//        });
         return view;
     }
 
@@ -157,8 +154,6 @@ public class CameraFragment extends Fragment {
 
         bitmap.compress(Bitmap.CompressFormat.JPEG,100, os);
 
-       /* or use below if you want 32 bit images
-        bitmap.compress(Bitmap.CompressFormat.PNG, (0–100 compression), os);*/
         byte[] imageArr = os.toByteArray();
 
         return Base64.encodeToString(imageArr, Base64.URL_SAFE);

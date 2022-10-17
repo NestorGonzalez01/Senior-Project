@@ -2,6 +2,15 @@
     <string name="app_name">MyCloset</string>
     <string name="nav_open">Open navigation drawer</string>
     <string name="nav_close">Close navigation drawer</string>
+    <string name="nav_gallery">From Gallery</string>
+    <string name="nav_camera">From Camera</string>
+    <string name="nav_cancel">Cancel</string>
+    <string name="nav_save">Save</string>
+    <string name="clothe_name">Description</string>
+    <string name="to_tops">Tops</string>
+    <string name="to_bottoms">Bottoms</string>
+    <string name="to_shoes">Shoes</string>
+    <string name="to_accessories">Accessories</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="EmailTome">Email</string>

@@ -21,6 +21,15 @@ public class Tops extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tops);
+        imgButton = (ImageButton) findViewById(R.id.imageButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Tops.this, ViewOutfits.class);
+                intent.putExtra("resId", R.drawable.top1);
+                startActivity(intent);
+            }
+        });
 
         button = (Button) findViewById(R.id.button8);
         button.setOnClickListener(new View.OnClickListener() {
@@ -31,16 +40,16 @@ public class Tops extends AppCompatActivity {
             }
         });
 
-        imgButton = (ImageButton) findViewById(R.id.imageButton);
-        imgButton.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
-
+        }
     }
 
 
-}
+
+
+
+
+
+
+

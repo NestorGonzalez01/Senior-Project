@@ -33,9 +33,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public DBHandler(Context context) {
-
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.d("Test", "Testing");
     }
 
 //    @Override
@@ -59,9 +57,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public Cursor location() {
         SQLiteDatabase db = getReadableDatabase();
-
         return db.query(
-                DBContract.ClothingEntry.TABLE_ACCESSORIES,
+                DBContract.ClothingEntry.TABLE_TOPS,
                 null,
                 null,
                 null,
@@ -100,8 +97,6 @@ public class DBHandler extends SQLiteOpenHelper {
             case 4: TABLE_NAME = DBContract.ClothingEntry.TABLE_CLOSET;
             break;
         }
-
-        Log.d("Test", TABLE_NAME);
 
         return db.insert(TABLE_NAME, null, values) != -1;
     }

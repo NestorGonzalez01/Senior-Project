@@ -3,6 +3,7 @@ package com.example.mycloset;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.GridView;
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         ((CursorAdapter)gridView.getAdapter()).swapCursor(this.dbHelper.location());
     }
 

@@ -158,6 +158,7 @@ public class Camera extends AppCompatActivity {
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
 
         new DBHandler(this).addClothing(imageManager, 3);
+
         finish();
     }
 

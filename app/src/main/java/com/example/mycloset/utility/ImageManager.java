@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.util.Base64;
+import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 
@@ -14,8 +15,8 @@ public class ImageManager {
     private String image;
 
     public static final int COL_ID = 0;
-    public static final int COL_TITLE = 1;
-    public static final int COL_IMAGE = 2;
+    public static final int COL_TITLE = 2;
+    public static final int COL_IMAGE = 1;
 
     public static final float NEW_WIDTH = 200;
     public static final float NEW_HEIGHT = 200;
@@ -49,18 +50,40 @@ public class ImageManager {
         return Base64.encodeToString(b, Base64.DEFAULT);
     }
 
-    private Bitmap stringToBitmap(String string) {
-        Bitmap bitmap = null;
+//    private Bitmap stringToBitmap(String string) {
+//        Bitmap bitmap = null;
+//
+//        try {
+//            Log.d("Checker", "Adapter-1");
+//            byte[] eByte = Base64.decode(string, Base64.DEFAULT);
+//            Log.d("Checker", "Adapter-2");
+//            bitmap = BitmapFactory.decodeByteArray(eByte, 0 , eByte.length);
+//            Log.d("Checker", "Adapter-3");
+//
+//        } catch (Exception e) {
+//            Log.d("Checker", "Adapter-E");
+//            e.printStackTrace();
+//        }
+//        Log.d("Checker", "Adapter-R");
+//        return bitmap;
+//    }
+private Bitmap stringToBitmap(String string) {
+    Bitmap bitmap = null;
+    Log.d("Checker", string);
+    try {
+        Log.d("Checker", "Adapter-1");
+        byte[] decodeImage = Base64.decode(string, Base64.DEFAULT);
+        Log.d("Checker", "Adapter-2");
+        bitmap = BitmapFactory.decodeByteArray(decodeImage, 0 , decodeImage.length);
+        Log.d("Checker", "Adapter-3");
 
-        try {
-            byte[] eByte = Base64.decode(string, Base64.DEFAULT);
-            bitmap = BitmapFactory.decodeByteArray(eByte, 0 , eByte.length);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-
-        return bitmap;
+    } catch (Exception e) {
+        Log.d("Checker", "Adapter-E");
+        e.printStackTrace();
     }
+    Log.d("Checker", "Adapter-R");
+    return bitmap;
+}
 
     public Bitmap resizeImage(Bitmap bitmap) {
         int width = bitmap.getWidth();

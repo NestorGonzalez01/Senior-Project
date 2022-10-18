@@ -11,12 +11,11 @@ public class DataBaseHandler extends SQLiteOpenHelper{
     public static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "data";
     public static final String KEY_ID = "id";
-    public static final String KEY_IMG_URL = "ImgFavourite";
+    public static final String KEY_IMG_URL = "clothing";
 
     public DataBaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
-        //Toast.makeText(context, "Constructor called", Toast.LENGTH_LONG).show();
     }
 
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + KEY_ID +

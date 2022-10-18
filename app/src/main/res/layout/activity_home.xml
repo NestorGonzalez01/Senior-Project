@@ -7,22 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:background="@drawable/closet">
+
 
     <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        android:background="#A6A3A3"
         app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu"
-        android:layout_gravity="start"/>
+        app:insetForeground="#A6A3A3"
+        app:menu="@menu/main_menu" />
 
     <include
         android:id="@+id/mytoolbar"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
+
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,7 +42,7 @@
             android:layout_gravity="bottom" />
 
     </LinearLayout>
-
+-->
 </androidx.drawerlayout.widget.DrawerLayout>
 
 

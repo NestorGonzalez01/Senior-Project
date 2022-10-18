@@ -4,15 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DAD6D6"
     tools:context=".ViewOutfits">
 
-    <TextView
-        android:id="@+id/textView2"
+
+
+    <Button
+        android:id="@+id/buttonBack1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Outfits"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="307dp"
+        android:background="#DAD6D6"
+        android:text="@string/back"
+        android:textColor="#795548"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public Cursor location() {
         SQLiteDatabase db = getReadableDatabase();
         return db.query(
-                DBContract.ClothingEntry.TABLE_TOPS,
+                DBContract.ClothingEntry.TABLE_ACCESSORIES,
                 null,
                 null,
                 null,

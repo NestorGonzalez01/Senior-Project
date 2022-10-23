@@ -2,6 +2,8 @@ package com.example.mycloset;
 
 //
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -90,15 +92,10 @@ public class Camera extends AppCompatActivity {
     private ImageView selectedImageView;
     private EditText titleEditText;
 
-    //private DBHandler dbHandler;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_closet);
-
-        //this.dbHandler = new DBHandler(this);
-
         this.selectedImageView = (ImageView) findViewById(R.id.new_clothing);
         this.titleEditText = (EditText) findViewById(R.id.new_memory_title);
     }
@@ -118,7 +115,8 @@ public class Camera extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        finish();
+        Intent home = new Intent(Camera.this, HomeActivity.class);
+        startActivity(home);
     }
 
 //    public void save(View view) {
@@ -132,34 +130,41 @@ public class Camera extends AppCompatActivity {
     public void tops(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-
         new DBHandler(this).addClothing(imageManager, 0);
-        finish();
+
+        Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
+        Intent reload = new Intent(Camera.this, Camera.class);
+        startActivity(reload);
     }
 
     public void bottoms(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-
         new DBHandler(this).addClothing(imageManager, 1);
-        finish();
+
+        Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
+        Intent reload = new Intent(Camera.this, Camera.class);
+        startActivity(reload);
     }
 
     public void shoes(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-
         new DBHandler(this).addClothing(imageManager, 2);
-        finish();
+
+        Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
+        Intent reload = new Intent(Camera.this, Camera.class);
+        startActivity(reload);
     }
 
     public void accessories(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-
         new DBHandler(this).addClothing(imageManager, 3);
 
-        finish();
+        Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
+        Intent reload = new Intent(Camera.this, Camera.class);
+        startActivity(reload);
     }
 
     @Override

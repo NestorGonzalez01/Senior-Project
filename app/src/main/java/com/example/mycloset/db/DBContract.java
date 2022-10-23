@@ -7,7 +7,6 @@ public class DBContract {
     private DBContract() {}
 
     public static final class ClothingEntry implements BaseColumns {
-        //public static final String TABLE_NAME = "closet";
         public static final String TABLE_TOPS = "tops";
         public static final String TABLE_BOTTOMS = "bottoms";
         public static final String TABLE_SHOES = "shoes";

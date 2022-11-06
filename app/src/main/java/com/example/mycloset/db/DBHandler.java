@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.mycloset.utility.ColourExtractor;
 import com.example.mycloset.utility.ImageManager;
 
 public class DBHandler extends SQLiteOpenHelper {

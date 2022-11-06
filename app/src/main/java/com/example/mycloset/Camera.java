@@ -53,6 +53,7 @@ import android.net.Uri;
 
 import com.example.mycloset.R;
 import com.example.mycloset.db.DBHandler;
+import com.example.mycloset.utility.ColourExtractor;
 import com.example.mycloset.utility.ImageManager;
 //////////////////////
 
@@ -130,6 +131,12 @@ public class Camera extends AppCompatActivity {
     public void tops(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
+        Log.d("color", "testing");
+        ColourExtractor colourExtractor = new ColourExtractor();
+        colourExtractor.paletteAsync(image);
+        String color = colourExtractor.getColor();
+        Log.d("color", "testing_2");
+        Log.d("color", color);
         new DBHandler(this).addClothing(imageManager, 0);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();

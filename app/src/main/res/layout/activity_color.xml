@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/fruit" />
+        android:src="@drawable/top3" />
 
     <TextView
         android:id="@+id/text_view_body"

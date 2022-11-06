@@ -41,31 +41,6 @@ public class ColorExtractor extends AppCompatActivity {
 
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
 
-//        int color = bitmap.getPixel(bitmap.getWidth()-1, bitmap.getHeight()-1);
-//
-//        int red = Color.red(color);
-//        int green = Color.green(color);
-//        int blue = Color.blue(color);
-//        int alpha = Color.alpha(color);
-//
-//        Log.d("color", String.valueOf(red));
-//        Log.d("color", String.valueOf(green));
-//        Log.d("color", String.valueOf(blue));
-//        Log.d("color", String.valueOf(alpha));
-//
-//        float hsv[] = new float[3];
-//        Color.RGBToHSV(red, green, blue, hsv);
-//        float hue = hsv[0];
-//        float sat = hsv[1];
-//        float val = hsv[2];
-//
-//        Log.d("color", String.valueOf(hue));
-//        Log.d("color", String.valueOf(sat));
-//        Log.d("color", String.valueOf(val));
-
-
-
-
         Palette.from(bitmap).maximumColorCount(32).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(@Nullable Palette palette) {
@@ -170,7 +145,7 @@ public class ColorExtractor extends AppCompatActivity {
 
             if (sat < 0.1 && val > 0.9) {
                 Log.d("color", "It's White");
-            } else if (val < 0.1) {
+            } else if (sat < 0.2 && val < 0.6) {
                 Log.d("color", "It's Black");
             }
             else if ((hue >= 0 && hue <= 20) || (hue > 330 && hue <= 360)) {

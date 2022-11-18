@@ -22,41 +22,74 @@ public class ColourExtractor {
     private Palette.Swatch mutedSwatch;
     private Palette.Swatch lightMutedSwatch;
     private Palette.Swatch darkMutedSwatch;
-    private static String color;
-
+    private static String color = "any";
+    //void
     public void paletteAsync(Bitmap bitmap) {
-        Log.d("color", "getColor");
-        Palette.from(bitmap).maximumColorCount(32).generate(new Palette.PaletteAsyncListener() {
-            @Override
-            public void onGenerated(@Nullable Palette palette) {
-                vibrantSwatch = palette.getVibrantSwatch();
-                lightVibrantSwatch = palette.getLightVibrantSwatch();
-                darkVibrantSwatch = palette.getDarkVibrantSwatch();
-                mutedSwatch = palette.getMutedSwatch();
-                lightMutedSwatch = palette.getLightMutedSwatch();
-                darkMutedSwatch = palette.getDarkMutedSwatch();
-                Log.d("color", "getColor2");
-                if(vibrantSwatch != null) {
-                    color = isColor(vibrantSwatch);
-                } else if (lightVibrantSwatch != null) {
-                    color = isColor(lightVibrantSwatch);
-                } else if (darkVibrantSwatch != null) {
-                    color = isColor(darkVibrantSwatch);
-                } else if (mutedSwatch != null) {
-                    color = isColor(mutedSwatch);
-                } else if (lightMutedSwatch != null) {
-                    color = isColor(lightMutedSwatch);
-                } else if (darkMutedSwatch != null) {
-                    color = isColor(darkMutedSwatch);
-                }
-                //Log.d("color", color);
-            }
-        });
+       // Log.d("color", "getColor");
+//        Palette.from(bitmap).maximumColorCount(32).generate(new Palette.PaletteAsyncListener() {
+//            @Override
+//            public void onGenerated(@Nullable Palette palette) {
+//                vibrantSwatch = palette.getVibrantSwatch();
+//                lightVibrantSwatch = palette.getLightVibrantSwatch();
+//                darkVibrantSwatch = palette.getDarkVibrantSwatch();
+//                mutedSwatch = palette.getMutedSwatch();
+//                lightMutedSwatch = palette.getLightMutedSwatch();
+//                darkMutedSwatch = palette.getDarkMutedSwatch();
+//                Log.d("color", "getColor2");
+//                if(vibrantSwatch != null) {
+//                    color = isColor(vibrantSwatch);
+//                } else if (lightVibrantSwatch != null) {
+//                    color = isColor(lightVibrantSwatch);
+//                } else if (darkVibrantSwatch != null) {
+//                    color = isColor(darkVibrantSwatch);
+//                } else if (mutedSwatch != null) {
+//                    color = isColor(mutedSwatch);
+//                } else if (lightMutedSwatch != null) {
+//                    color = isColor(lightMutedSwatch);
+//                } else if (darkMutedSwatch != null) {
+//                    color = isColor(darkMutedSwatch);
+//                }
+//                Log.d("color", color);
+//                color = getColor();
+//                Log.d("color", "Async: " + color);
+//            }
+//        });
+        /////////
+        Palette p = createPaletteSync(bitmap);
+
+        vibrantSwatch = p.getVibrantSwatch();
+        lightVibrantSwatch = p.getLightVibrantSwatch();
+        darkVibrantSwatch = p.getDarkVibrantSwatch();
+        mutedSwatch = p.getMutedSwatch();
+        lightMutedSwatch = p.getLightMutedSwatch();
+        darkMutedSwatch = p.getDarkMutedSwatch();
+
+        if(vibrantSwatch != null) {
+            color = isColor(vibrantSwatch);
+        } else if (lightVibrantSwatch != null) {
+            color = isColor(lightVibrantSwatch);
+        } else if (darkVibrantSwatch != null) {
+            color = isColor(darkVibrantSwatch);
+        } else if (mutedSwatch != null) {
+            color = isColor(mutedSwatch);
+        } else if (lightMutedSwatch != null) {
+            color = isColor(lightMutedSwatch);
+        } else if (darkMutedSwatch != null) {
+            color = isColor(darkMutedSwatch);
+        }
+
+        /////////
+        Log.d("color", "From Colour: " + color);
     };
 
     public String getColor() {
         return this.color;
     };
+
+    public Palette createPaletteSync(Bitmap bitmap) {
+        Palette p = Palette.from(bitmap).maximumColorCount(32).generate();
+        return p;
+    }
 
     public String isColor(Palette.Swatch swatch) {
 
@@ -66,10 +99,10 @@ public class ColourExtractor {
         int blue = Color.blue(color);
         int alpha = Color.alpha(color);
 
-        Log.d("color", String.valueOf(red));
-        Log.d("color", String.valueOf(green));
-        Log.d("color", String.valueOf(blue));
-        Log.d("color", String.valueOf(alpha));
+//        Log.d("color", String.valueOf(red));
+//        Log.d("color", String.valueOf(green));
+//        Log.d("color", String.valueOf(blue));
+//        Log.d("color", String.valueOf(alpha));
 
         float hsv[] = new float[3];
         Color.RGBToHSV(red, green, blue, hsv);
@@ -77,9 +110,9 @@ public class ColourExtractor {
         float sat = hsv[1];
         float val = hsv[2];
 
-        Log.d("color", "Hue: " + String.valueOf(hue));
-        Log.d("color", "Sat: " + String.valueOf(sat));
-        Log.d("color", "Val: " + String.valueOf(val));
+//        Log.d("color", "Hue: " + String.valueOf(hue));
+//        Log.d("color", "Sat: " + String.valueOf(sat));
+//        Log.d("color", "Val: " + String.valueOf(val));
 
         if (sat < 0.1 && val > 0.9) {
             return "white";

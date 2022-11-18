@@ -135,8 +135,9 @@ public class Camera extends AppCompatActivity {
         ColourExtractor colourExtractor = new ColourExtractor();
         colourExtractor.paletteAsync(image);
         String color = colourExtractor.getColor();
-        Log.d("color", "testing_2");
         Log.d("color", color);
+        Log.d("color", "testing_2");
+
         new DBHandler(this).addClothing(imageManager, 0);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();

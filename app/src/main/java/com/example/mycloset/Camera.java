@@ -93,6 +93,9 @@ public class Camera extends AppCompatActivity {
     private ImageView selectedImageView;
     private EditText titleEditText;
 
+    ColourExtractor colourExtractor = new ColourExtractor();
+    String color = colourExtractor.getColor();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,13 +134,15 @@ public class Camera extends AppCompatActivity {
     public void tops(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        Log.d("color", "testing");
-        ColourExtractor colourExtractor = new ColourExtractor();
+        //Log.d("color", "testing");
+
         colourExtractor.paletteAsync(image);
-        String color = colourExtractor.getColor();
-        Log.d("color", "testing_2");
-        Log.d("color", color);
-        new DBHandler(this).addClothing(imageManager, 0);
+        color = colourExtractor.getColor();
+
+        Log.d("color", "From Tops: " + color);
+//        Log.d("color", "testing_2");
+
+        new DBHandler(this).addClothing(imageManager, 0, color);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -147,7 +152,11 @@ public class Camera extends AppCompatActivity {
     public void bottoms(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        new DBHandler(this).addClothing(imageManager, 1);
+
+        colourExtractor.paletteAsync(image);
+        color = colourExtractor.getColor();
+
+        new DBHandler(this).addClothing(imageManager, 1, color);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -157,7 +166,11 @@ public class Camera extends AppCompatActivity {
     public void shoes(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        new DBHandler(this).addClothing(imageManager, 2);
+
+        colourExtractor.paletteAsync(image);
+        color = colourExtractor.getColor();
+
+        new DBHandler(this).addClothing(imageManager, 2, color);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -167,7 +180,8 @@ public class Camera extends AppCompatActivity {
     public void accessories(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        new DBHandler(this).addClothing(imageManager, 3);
+
+        new DBHandler(this).addClothing(imageManager, 3, "any");
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);

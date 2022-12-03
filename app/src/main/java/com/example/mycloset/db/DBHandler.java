@@ -18,32 +18,21 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "closet.db";
     private static final int DATABASE_VERSION = 1;
 
-//    private static final String CREATE_TABLE =
-//            "CREATE TABLE " + DBContract.ClothingEntry.TABLE_NAME + " (" +
-//                    DBContract.ClothingEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
-//                    DBContract.ClothingEntry.COLUMN_IMAGE + TEXT_TYPE + COMMA_SEP +
-//                    DBContract.ClothingEntry.COLUMN_TITLE + TEXT_TYPE + " )";
-
     public String createTable(String table) {
         final String CREATE_TABLE =
                 "CREATE TABLE " + table + " (" +
                         DBContract.ClothingEntry._ID + INTEGER_TYPE + " PRIMARY KEY" + COMMA_SEP +
                         DBContract.ClothingEntry.COLUMN_IMAGE + TEXT_TYPE + COMMA_SEP +
-                        DBContract.ClothingEntry.COLUMN_TITLE + TEXT_TYPE + " )";
+                        DBContract.ClothingEntry.COLUMN_TITLE + TEXT_TYPE + COMMA_SEP +
+                        DBContract.ClothingEntry.COLUMN_COLOR + TEXT_TYPE + " )";
         return CREATE_TABLE;
     }
 
     final String CREATE_CLOSET = "CREATE TABLE closet (_id INTEGER PRIMARY KEY, accessories TEXT, tops TEXT, bottoms TEXT, shoes TEXT)";
 
-
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-//    @Override
-//    public void onCreate(SQLiteDatabase db) {
-//        db.execSQL(CREATE_TABLE);
-//    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -137,20 +126,12 @@ public class DBHandler extends SQLiteOpenHelper {
         );
     }
 
-//    public boolean addClothing(ImageManager imageManager) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(DBContract.ClothingEntry.COLUMN_TITLE, imageManager.getTitle());
-//        values.put(DBContract.ClothingEntry.COLUMN_IMAGE, imageManager.getImageString());
-//
-//        return db.insert(DBContract.ClothingEntry.TABLE_NAME, null, values) != -1;
-//    }
-
-    public boolean addClothing(ImageManager imageManager, int dbName) {
+    public boolean addClothing(ImageManager imageManager, int dbName, String color) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBContract.ClothingEntry.COLUMN_TITLE, imageManager.getTitle());
         values.put(DBContract.ClothingEntry.COLUMN_IMAGE, imageManager.getImageString());
+        values.put(DBContract.ClothingEntry.COLUMN_COLOR, color);
 
         String TABLE_NAME = null;
 

@@ -14,6 +14,7 @@ public class DBContract {
         public static final String TABLE_CLOSET = "closet";
         public static final String COLUMN_TITLE = "description";
         public static final String COLUMN_IMAGE = "image";
+        public static final String COLUMN_COLOR = "color";
 
     }
 

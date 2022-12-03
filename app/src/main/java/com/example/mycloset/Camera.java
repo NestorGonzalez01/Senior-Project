@@ -142,7 +142,7 @@ public class Camera extends AppCompatActivity {
         Log.d("color", "From Tops: " + color);
 //        Log.d("color", "testing_2");
 
-        new DBHandler(this).addClothing(imageManager, 0);
+        new DBHandler(this).addClothing(imageManager, 0, color);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -152,7 +152,11 @@ public class Camera extends AppCompatActivity {
     public void bottoms(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        new DBHandler(this).addClothing(imageManager, 1);
+
+        colourExtractor.paletteAsync(image);
+        color = colourExtractor.getColor();
+
+        new DBHandler(this).addClothing(imageManager, 1, color);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -162,7 +166,11 @@ public class Camera extends AppCompatActivity {
     public void shoes(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        new DBHandler(this).addClothing(imageManager, 2);
+
+        colourExtractor.paletteAsync(image);
+        color = colourExtractor.getColor();
+
+        new DBHandler(this).addClothing(imageManager, 2, color);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -172,7 +180,8 @@ public class Camera extends AppCompatActivity {
     public void accessories(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
         ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
-        new DBHandler(this).addClothing(imageManager, 3);
+
+        new DBHandler(this).addClothing(imageManager, 3, "any");
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);

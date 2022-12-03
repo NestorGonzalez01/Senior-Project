@@ -30,6 +30,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     final String CREATE_CLOSET = "CREATE TABLE closet (_id INTEGER PRIMARY KEY, accessories TEXT, tops TEXT, bottoms TEXT, shoes TEXT)";
 
+    final String CREATE_USERS = "CREATE TABLE users (_id INTEGER PRIMARY KEY, user TEXT)";
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -41,6 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_SHOES));
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_ACCESSORIES));
         db.execSQL(CREATE_CLOSET);
+        db.execSQL(CREATE_USERS);
     }
 
     @Override
@@ -117,6 +120,19 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         return db.query(
                 DBContract.ClothingEntry.TABLE_CLOSET,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+    }
+
+    public Cursor location_users() {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.query(
+                DBContract.ClothingEntry.TABLE_USERS,
                 null,
                 null,
                 null,

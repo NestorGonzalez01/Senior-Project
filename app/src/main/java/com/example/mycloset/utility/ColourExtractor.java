@@ -115,9 +115,9 @@ public class ColourExtractor {
 //        Log.d("color", "Val: " + String.valueOf(val));
 
         if (sat < 0.1 && val > 0.9) {
-            return "white";
+            return "any";
         } else if (sat < 0.2 && val < 0.6)
-            return "black";
+            return "any";
         else if ((hue >= 0 && hue <= 20) || (hue > 330 && hue <= 360)) {
             return "red";
         } else if (hue > 20 && hue <= 45){

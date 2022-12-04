@@ -177,8 +177,8 @@ public class DBHandler extends SQLiteOpenHelper {
         return size;
     }
 
-    public Cursor fetch() {
-        Cursor cursor = this.database.query("tops", new String[]{"_id", "image", "description", "color"}, null, null, null, null, null);
+    public Cursor fetch(String table) {
+        Cursor cursor = this.database.query(table, new String[]{"_id", "image", "description", "color"}, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }

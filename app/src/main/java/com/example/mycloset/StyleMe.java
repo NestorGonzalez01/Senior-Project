@@ -26,11 +26,11 @@ public class StyleMe extends AppCompatActivity {
         long s = new DBHandler(this).getNumEntries("tops");
         Log.d("size", "Table size is: " + s);
 
-        int n = new Random().nextInt((int)s+1);
+        int n = new Random().nextInt((int)s);
         Log.d("size", "Random number: " + n);
 
         Cursor cursor = new DBHandler(this).fetch("tops");
-        cursor.moveToFirst();
+        cursor.moveToPosition(n);
         String id = cursor.getString(0);
         String image = cursor.getString(1);
         String description = cursor.getString(2);

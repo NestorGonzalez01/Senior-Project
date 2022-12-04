@@ -29,7 +29,7 @@ public class StyleMe extends AppCompatActivity {
         int n = new Random().nextInt((int)s+1);
         Log.d("size", "Random number: " + n);
 
-        Cursor cursor = new DBHandler(this).fetch();
+        Cursor cursor = new DBHandler(this).fetch("tops");
         cursor.moveToFirst();
         String id = cursor.getString(0);
         String image = cursor.getString(1);

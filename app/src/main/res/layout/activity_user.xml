@@ -4,27 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StyleMe">
+    android:background="#DAD6D6">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Style Me"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/manage_users"
+        android:textColor="#171717"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="39dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/styleMe"
-        android:layout_width="match_parent"
+        android:id="@+id/buttonUser"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/style"
-        android:onClick="styleMe"
+        android:text="@string/add_user"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
+        app:layout_constraintVertical_bias="0.797" />
 </androidx.constraintlayout.widget.ConstraintLayout>

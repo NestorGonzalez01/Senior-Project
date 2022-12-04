@@ -30,4 +30,7 @@
     <string name="back">Back</string>
     <string name="todooo">TODO</string>
     <string name="todo01">TODO</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="add_user">+ Add User</string>
+    <string name="style">Style Me</string>
 </resources>

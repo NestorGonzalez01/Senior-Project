@@ -20,6 +20,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "closet.db";
     private static final int DATABASE_VERSION = 1;
 
+    private SQLiteDatabase database = getReadableDatabase();
+
     public String createTable(String table) {
         final String CREATE_TABLE =
                 "CREATE TABLE " + table + " (" +
@@ -173,6 +175,14 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         long size = DatabaseUtils.queryNumEntries(db, table);
         return size;
+    }
+
+    public Cursor fetch() {
+        Cursor cursor = this.database.query("tops", new String[]{"_id", "image", "description", "color"}, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
 }

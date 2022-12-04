@@ -3,11 +3,13 @@ package com.example.mycloset.db;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.mycloset.utility.ColourExtractor;
+import androidx.core.database.DatabaseUtilsCompat;
+
 import com.example.mycloset.utility.ImageManager;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -48,7 +50,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        //This method has been intentionally left empty. There is only one version of the database.
+
     }
 
     public Cursor location() {
@@ -165,6 +167,12 @@ public class DBHandler extends SQLiteOpenHelper {
         }
 
         return db.insert(TABLE_NAME, null, values) != -1;
+    }
+
+    public long getNumEntries(String table) {
+        SQLiteDatabase db = getReadableDatabase();
+        long size = DatabaseUtils.queryNumEntries(db, table);
+        return size;
     }
 
 }

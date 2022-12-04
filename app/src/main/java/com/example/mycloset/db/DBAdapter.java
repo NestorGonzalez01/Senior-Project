@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.mycloset.R;
 import com.example.mycloset.utility.ImageManager;
 

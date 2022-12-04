@@ -9,8 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+
+
+
 public class CreateOutfit extends AppCompatActivity {
 
+
+    public static int[] createOutfitArray = new int[3];
     public Button button;
     ImageView imageView3;
     @SuppressLint("MissingInflatedId")
@@ -44,7 +49,7 @@ public class CreateOutfit extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreateOutfit.this, ViewCloset.class);
+                Intent intent = new Intent(CreateOutfit.this, Tops.class);
                 startActivity(intent);
             }
         });

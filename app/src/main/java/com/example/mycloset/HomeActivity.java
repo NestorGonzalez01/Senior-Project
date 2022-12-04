@@ -86,6 +86,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent_style = new Intent(HomeActivity.this, StyleMe.class);
                 startActivity(intent_style);
                 break;
+            case R.id.nav_user:
+                Intent intent_user = new Intent(HomeActivity.this, User.class);
+                startActivity(intent_user);
+                break;
         }
 
         drawerLayout.closeDrawer((GravityCompat.START));

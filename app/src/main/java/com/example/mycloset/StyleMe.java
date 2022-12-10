@@ -7,6 +7,9 @@ import com.example.mycloset.utility.ImageManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,7 +33,7 @@ public class StyleMe extends AppCompatActivity {
 
     ArrayList <String> chosen;
     ArrayList <String> randChosen;
-    //private ImageView image;
+    private ImageView image;
     //private ImageView image2;
 
     @Override
@@ -38,7 +41,7 @@ public class StyleMe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_style_me);
 
-       // this.image2 = (ImageView) findViewById(R.id.imageView4);
+       this.image = (ImageView) findViewById(R.id.imageView4);
     }
 
     public void styleMe(View v) throws FileNotFoundException {
@@ -47,9 +50,11 @@ public class StyleMe extends AppCompatActivity {
         //Size of the Tops table and Bottoms Table
         long s = new DBHandler(this).getNumEntries("tops");
         long b = new DBHandler(this).getNumEntries("bottoms");
+        long sh = new DBHandler(this).getNumEntries("shoes");
 
         Log.d("size", "Table Top size is: " + s);
         Log.d("size", "Table Bottom size is: " + b);
+        Log.d("size", "Table Shoes size is: " + sh);
 
         //random number chosen for Tops
         int n = new Random().nextInt((int)s);
@@ -120,41 +125,38 @@ public class StyleMe extends AppCompatActivity {
         String imageBottom = bottomCursor.getString(1); //Image bottom
         String imageTop = topCursor.getString(1); //Image top
 
-        randChosen.add(IdTop);
-        randChosen.add(IdBottom);
+        //randChosen.add(IdTop);
+        //randChosen.add(IdBottom);
 
         //Size of random array
-        Log.d(TAG, "Random Array Size: " + randChosen.size());
+        //Log.d(TAG, "Random Array Size: " + randChosen.size());
 
         //What id is stored in Random Array
-       for (int k = 0; k < randChosen.size() ; k++) {
+       /*for (int k = 0; k < randChosen.size() ; k++) {
             Log.d(TAG, "Stored Random Array Id: " + randChosen.get(k));
-        }
+        }*/
 
 
 
        //Grab the first image and set it on StyleMe for TOps
-     /*   ImageView image1 = findViewById(R.id.imageView4);
-        image1 = new ImageView(this);
+        ImageView image1 = findViewById(R.id.imageView4);
         ImageManager imageManager1 = new ImageManager(topCursor);
+        //Log.d(TAG, "Top Cursor: " + topCursor);
         Bitmap imageDisplay1 = imageManager1.getImage();
-        image1.setImageBitmap(imageDisplay1);*/
+        //Log.d(TAG, "Bitmap: " + imageDisplay1);
+        image1.setImageBitmap(imageDisplay1);
+
+
+
+
+
+
 
         //Grab the second image and set to Style me for Bottoms
-      /*  ImageView image2;
-        image2 = new ImageView(this);
+        ImageView image2 = findViewById(R.id.imageView5);
         ImageManager imageManager2 = new ImageManager(bottomCursor);
         Bitmap imageDisplay2 = imageManager2.getImage();
-        image2.setImageBitmap(imageDisplay2);*/
-
-
-
-
-
-
-
-
-
+        image2.setImageBitmap(imageDisplay2);
 
 
 

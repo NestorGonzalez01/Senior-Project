@@ -10,7 +10,10 @@ import android.util.Log;
 
 import androidx.core.database.DatabaseUtilsCompat;
 
+import com.example.mycloset.User;
 import com.example.mycloset.utility.ImageManager;
+
+import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -19,6 +22,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COMMA_SEP = ",";
     private static final String DATABASE_NAME = "closet.db";
     private static final int DATABASE_VERSION = 1;
+    //private static final String NAME_COL = "user";
 
     private SQLiteDatabase database = getReadableDatabase();
 
@@ -183,6 +187,15 @@ public class DBHandler extends SQLiteOpenHelper {
             cursor.moveToFirst();
         }
         return cursor;
+    }
+
+    public boolean insertUser(String userName)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("user", userName);
+
+        return db.insert("users", null, values) != -1;
     }
 
 }

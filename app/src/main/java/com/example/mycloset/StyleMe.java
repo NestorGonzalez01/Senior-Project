@@ -36,11 +36,12 @@ public class StyleMe extends AppCompatActivity {
     ArrayList <String> accChosen;
 
 
-    ArrayList <String> randChosen;
+    //ArrayList <String> randChosen;
     private ImageView image;
     private ImageView image2;
     private ImageView image3;
     private ImageView image4;
+    public  Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,16 @@ public class StyleMe extends AppCompatActivity {
        this.image2 = (ImageView) findViewById(R.id.imageView5);
        this.image3 = (ImageView) findViewById(R.id.imageView6);
        this.image4 = (ImageView) findViewById(R.id.imageView7);
+
+        button = (Button) findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StyleMe.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void GetCompare(long size, Cursor topCursor, Cursor cursor, ArrayList <String> chosen){

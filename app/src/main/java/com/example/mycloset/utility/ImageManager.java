@@ -50,23 +50,6 @@ public class ImageManager {
         return Base64.encodeToString(b, Base64.DEFAULT);
     }
 
-//    private Bitmap stringToBitmap(String string) {
-//        Bitmap bitmap = null;
-//
-//        try {
-//            Log.d("Checker", "Adapter-1");
-//            byte[] eByte = Base64.decode(string, Base64.DEFAULT);
-//            Log.d("Checker", "Adapter-2");
-//            bitmap = BitmapFactory.decodeByteArray(eByte, 0 , eByte.length);
-//            Log.d("Checker", "Adapter-3");
-//
-//        } catch (Exception e) {
-//            Log.d("Checker", "Adapter-E");
-//            e.printStackTrace();
-//        }
-//        Log.d("Checker", "Adapter-R");
-//        return bitmap;
-//    }
 private Bitmap stringToBitmap(String string) {
     Bitmap bitmap = null;
     Log.d("Checker", string);

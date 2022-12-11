@@ -3,12 +3,17 @@ package com.example.mycloset.db;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.mycloset.utility.ColourExtractor;
+import androidx.core.database.DatabaseUtilsCompat;
+
+import com.example.mycloset.User;
 import com.example.mycloset.utility.ImageManager;
+
+import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -17,6 +22,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COMMA_SEP = ",";
     private static final String DATABASE_NAME = "closet.db";
     private static final int DATABASE_VERSION = 1;
+    //private static final String NAME_COL = "user";
+
+    private SQLiteDatabase database = getReadableDatabase();
 
     public String createTable(String table) {
         final String CREATE_TABLE =
@@ -32,6 +40,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     final String CREATE_USERS = "CREATE TABLE users (_id INTEGER PRIMARY KEY, user TEXT)";
 
+    final String CREATE_OUTFITS = "CREATE TABLE outfits (accessories TEXT, tops TEXT, bottoms TEXT, shoes TEXT)";
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -44,11 +54,12 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_ACCESSORIES));
         db.execSQL(CREATE_CLOSET);
         db.execSQL(CREATE_USERS);
+        db.execSQL(CREATE_OUTFITS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        //This method has been intentionally left empty. There is only one version of the database.
+
     }
 
     public Cursor location() {
@@ -165,6 +176,38 @@ public class DBHandler extends SQLiteOpenHelper {
         }
 
         return db.insert(TABLE_NAME, null, values) != -1;
+    }
+
+    public void deleteClothing(String deleteImage)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("TABLE_TOPS", "COLUMN_IMAGE=?", new String[]{deleteImage});
+        db.close();
+    }
+
+
+
+    public long getNumEntries(String table) {
+        SQLiteDatabase db = getReadableDatabase();
+        long size = DatabaseUtils.queryNumEntries(db, table);
+        return size;
+    }
+
+    public Cursor fetch(String table) {
+        Cursor cursor = this.database.query(table, new String[]{"_id", "image", "description", "color"}, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    public boolean insertUser(String userName)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("user", userName);
+
+        return db.insert("users", null, values) != -1;
     }
 
 }

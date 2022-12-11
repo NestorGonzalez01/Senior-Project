@@ -36,7 +36,10 @@
             android:id="@+id/nav_user"
             android:title="User"
             android:icon="@drawable/user"/>
-
+        <item
+            android:id="@+id/nav_readUser"
+            android:title="Add User"
+            android:icon="@drawable/ic_baseline_person_add_24"/>
 
     </group>
 

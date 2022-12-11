@@ -50,7 +50,7 @@ public class ImageManager {
         return Base64.encodeToString(b, Base64.DEFAULT);
     }
 
-private Bitmap stringToBitmap(String string) {
+public Bitmap stringToBitmap(String string) {
     Bitmap bitmap = null;
     Log.d("Checker", string);
     try {

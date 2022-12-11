@@ -59,7 +59,7 @@ public class Tops extends AppCompatActivity {
 
             for (int x = 0; x < sizeRows; x++) {
                 //Log.d("size", "poop");
-
+                
                 this.selectedImageButton = (ImageButton) findViewById(R.id.imageButton);
                 //btn[x] = new ImageButton(this);
                 Bitmap imageDisplayTops = imageManager.getImage();
@@ -68,12 +68,14 @@ public class Tops extends AppCompatActivity {
             }
             cursor.close();
 
+
+
             //calling button to delete image from database
             deleteTop = findViewById(R.id.deleteTop);
             deleteTop.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    imageButton.setVisibility(View.GONE);
+
 
                 }
             });

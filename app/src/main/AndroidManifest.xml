@@ -65,6 +65,9 @@
             android:name=".ReadUsers"
             android:exported="false" />
         <activity
+            android:name=".User"
+            android:exported="true" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>

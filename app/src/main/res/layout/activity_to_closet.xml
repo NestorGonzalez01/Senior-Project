@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:orientation="vertical">
 
@@ -11,11 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="150dp" />
 
-    <EditText
-        android:id="@+id/new_memory_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/clothe_name"/>
+    <Spinner
+        android:id="@+id/spinnerList"
+        android:layout_width="376dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#676464"
+        android:contentDescription="@string/add_user"
+        android:scrollbarSize="20dp"
+        android:textAlignment="center"
+        android:hint="User"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:onClick="openGallery"

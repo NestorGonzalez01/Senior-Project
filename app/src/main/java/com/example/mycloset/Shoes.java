@@ -24,7 +24,7 @@ public class Shoes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.selectedImageButton = (ImageButton) findViewById(R.id.imageButton);
+        //this.selectedImageButton = (ImageButton) findViewById(R.id.imageButton);
         setContentView(R.layout.activity_shoes);
 
         button = (Button) findViewById(R.id.buttonShoeBack);

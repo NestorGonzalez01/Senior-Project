@@ -59,8 +59,11 @@
             android:name=".ViewCloset"
             android:exported="false" />
         <activity
-            android:name=".ColorExtractor"
-            android:exported="true" />
+            android:name=".User"
+            android:exported="false" />
+        <activity
+            android:name=".ReadUsers"
+            android:exported="false" />
         <activity
             android:name=".User"
             android:exported="true" />

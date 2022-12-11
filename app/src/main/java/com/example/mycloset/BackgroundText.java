@@ -7,6 +7,7 @@ public class BackgroundText extends AsyncTask<String,Void,Void> {
     Context ctx;
     BackgroundText(Context ctx)
     {
+
         this.ctx = ctx;
     }
     @Override

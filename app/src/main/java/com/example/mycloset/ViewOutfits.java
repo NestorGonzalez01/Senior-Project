@@ -27,7 +27,7 @@ public class ViewOutfits extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewOutfits.this, ViewCloset.class);
+                Intent intent = new Intent(ViewOutfits.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

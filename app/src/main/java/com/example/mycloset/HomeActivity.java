@@ -20,6 +20,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NonNls;
 
+import java.util.Calendar;
+
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
@@ -89,6 +91,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_user:
                 Intent intent_user = new Intent(HomeActivity.this, User.class);
                 startActivity(intent_user);
+                break;
+            case R.id.nav_readUser:
+                Intent intent_readUser = new Intent(HomeActivity.this, ReadUsers.class);
+                startActivity(intent_readUser);
                 break;
         }
 

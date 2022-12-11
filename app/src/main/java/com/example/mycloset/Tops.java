@@ -45,17 +45,15 @@ public class Tops extends AppCompatActivity {
         setContentView(R.layout.activity_tops);
 
         DBHandler db = new DBHandler(this);
-        ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
         long size = db.getNumEntries("tops");
         Cursor cursor = db.fetch("tops");
-        //ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
 
         for (int i = 0; i < size; i++) {
             ImageButton image = new ImageButton(this);
             ImageManager imageManager = new ImageManager(cursor);
             Bitmap pic = imageManager.getImage();
-//            ConstraintLayout.LayoutParams ly = new ConstraintLayout.LayoutParams();
-//            image.setLayoutParams(params);
+            //image.setLayoutParams(new ViewGroup.LayoutParams(300, 300));
 //            image.setMaxHeight(20);
 //            image.setMaxWidth(20);
             //Bitmap bImage = BitmapFactory.decodeResource(this.getResources(), R.drawable.bottoms1);

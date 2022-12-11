@@ -62,6 +62,9 @@
             android:name=".ColorExtractor"
             android:exported="true" />
         <activity
+            android:name=".User"
+            android:exported="true" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>

@@ -10,6 +10,9 @@ import android.util.Log;
 import com.example.mycloset.utility.ColourExtractor;
 import com.example.mycloset.utility.ImageManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHandler extends SQLiteOpenHelper {
 
     private static final String TEXT_TYPE = " TEXT";
@@ -166,5 +169,42 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return db.insert(TABLE_NAME, null, values) != -1;
     }
+
+    public boolean insertUser( String userName)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("user", userName);
+
+        return db.insert("users", null, values) != -1;
+    }
+
+
+    public List<String> getAllUsers(){
+        List<String>list = new ArrayList<String>();
+
+        String selectQuery = "SELECT * FROM users";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                list.add(cursor.getString(1));
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public void deleteName(String userName)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("users", "user=?", new String[]{userName} );
+        db.close();
+    }
+
 
 }

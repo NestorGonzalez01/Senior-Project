@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.app.Activity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,6 +22,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,8 +41,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
-//////////////////////
+
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -55,7 +61,7 @@ import com.example.mycloset.R;
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ColourExtractor;
 import com.example.mycloset.utility.ImageManager;
-//////////////////////
+
 
 
 //import com.example.mycloset.Fragments.CameraFragment;
@@ -65,8 +71,10 @@ import android.os.Bundle;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class Camera extends AppCompatActivity {
+
 
 //    FrameLayout frameLayout;
 //
@@ -87,22 +95,47 @@ public class Camera extends AppCompatActivity {
 //        transaction.commit();
 //    }
 
+    Spinner spinner;
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        spinner = findViewById(R.id.spinnerList);
+
+        loadSpinnerData();
+
+    }
+
+    private void loadSpinnerData() {
+        DBHandler db = new DBHandler(getApplicationContext());
+        List<String> user = db.getAllUsers();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,user);
+
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(dataAdapter);
+    }
+
+
     private static final int GALLERY_REQUEST = 100;
     private static final int CAMERA_REQUEST = 200;
 
     private ImageView selectedImageView;
     private EditText titleEditText;
 
+
     ColourExtractor colourExtractor = new ColourExtractor();
     String color = colourExtractor.getColor();
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_closet);
-        this.selectedImageView = (ImageView) findViewById(R.id.new_clothing);
-        this.titleEditText = (EditText) findViewById(R.id.new_memory_title);
-    }
+//
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_to_closet);
+//        this.selectedImageView = (ImageView) findViewById(R.id.new_clothing);
+//        this.titleEditText = (EditText) findViewById(R.id.new_memory_title);
+//    }
 
     public void openGallery(View view) {
         Intent intent = new Intent();

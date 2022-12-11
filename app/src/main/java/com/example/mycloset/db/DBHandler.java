@@ -175,6 +175,15 @@ public class DBHandler extends SQLiteOpenHelper {
         return db.insert(TABLE_NAME, null, values) != -1;
     }
 
+    public void deleteClothing(String deleteImage)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("TABLE_TOPS", "COLUMN_IMAGE=?", new String[]{deleteImage});
+        db.close();
+    }
+
+
+
     public long getNumEntries(String table) {
         SQLiteDatabase db = getReadableDatabase();
         long size = DatabaseUtils.queryNumEntries(db, table);

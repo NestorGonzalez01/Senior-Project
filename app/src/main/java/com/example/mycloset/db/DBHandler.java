@@ -37,6 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return CREATE_TABLE;
     }
 
+
     final String CREATE_CLOSET = "CREATE TABLE closet (_id INTEGER PRIMARY KEY, accessories TEXT, tops TEXT, bottoms TEXT, shoes TEXT)";
 
     final String CREATE_USERS = "CREATE TABLE users (_id INTEGER PRIMARY KEY, user TEXT)";
@@ -207,6 +208,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public Cursor fetch(String table) {
         Cursor cursor = this.database.query(table, new String[]{"_id", "image", "description", "color"}, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    public Cursor fetch1(String table){
+        Cursor cursor = this.database.query(table, new String[]{"_id", "accessories", "tops", "bottoms", "shoes"}, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }

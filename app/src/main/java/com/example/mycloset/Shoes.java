@@ -25,7 +25,7 @@ public class Shoes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottoms);
+        setContentView(R.layout.activity_shoes);
 
         DBHandler db = new DBHandler(this);
         LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);

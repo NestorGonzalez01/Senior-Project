@@ -39,12 +39,8 @@ public class CreateOutfit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_outfit);
 
-        Log.d("Array4:", "Array 4 should be blank:" + createOutfitArray[4]);
         if(createOutfitArray[4] != null) {
 
-
-
-            Log.d("Array4", "This should display images " + createOutfitArray[4]);
 
             DBHandler db = new DBHandler(this);
             Cursor topsCursor = db.fetch("tops");
@@ -74,6 +70,8 @@ public class CreateOutfit extends AppCompatActivity {
             Bitmap accessoriesBitmap = imageManager4.stringToBitmap(accessoriesString);;
             ImageView accessoriesImageView = findViewById(R.id.accessoriesImageView);
             accessoriesImageView.setImageBitmap(accessoriesBitmap);
+
+
         }
 
 
@@ -87,9 +85,6 @@ public class CreateOutfit extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
-
-
 
 
             //Adding Action to Add From Closet

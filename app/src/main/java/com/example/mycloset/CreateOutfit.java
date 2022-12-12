@@ -51,18 +51,24 @@ public class CreateOutfit extends AppCompatActivity {
             ImageView topsImageView = findViewById(R.id.topImageView);
             topsImageView.setImageBitmap(topBitmap);
 
+            Cursor bottomsCursor = db.fetch("bottoms");
             String bottomString = CreateOutfit.createOutfitArray[1];
-            Bitmap bottomBitmap = im.stringToBitmap(bottomString);
+            ImageManager imageManager2= new ImageManager(bottomsCursor);
+            Bitmap bottomBitmap = imageManager2.stringToBitmap(bottomString);
             ImageView bottomsImageView = findViewById(R.id.bottomImageView);
             bottomsImageView.setImageBitmap(bottomBitmap);
 
+            Cursor shoesCursor = db.fetch("shoes") ;
             String shoesString = CreateOutfit.createOutfitArray[2];
-            Bitmap shoesBitmap = im.stringToBitmap(shoesString);
+            ImageManager imageManager3 = new ImageManager(shoesCursor);
+            Bitmap shoesBitmap = imageManager3.stringToBitmap(shoesString);
             ImageView shoesImageView = findViewById(R.id.shoesImageView);
             shoesImageView.setImageBitmap(shoesBitmap);
 
+            Cursor accessoriesCursor = db.fetch("accessories") ;
             String accessoriesString = CreateOutfit.createOutfitArray[3];
-            Bitmap accessoriesBitmap = im.stringToBitmap(accessoriesString);
+            ImageManager imageManager4 = new ImageManager(shoesCursor);
+            Bitmap accessoriesBitmap = imageManager4.stringToBitmap(accessoriesString);;
             ImageView accessoriesImageView = findViewById(R.id.accessoriesImageView);
             accessoriesImageView.setImageBitmap(accessoriesBitmap);
         }

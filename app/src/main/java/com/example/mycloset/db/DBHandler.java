@@ -179,6 +179,17 @@ public class DBHandler extends SQLiteOpenHelper {
         return db.insert(TABLE_NAME, null, values) != -1;
     }
 
+    public boolean addOutfit (String image, String image2, String image3, String image4){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBContract.ClothingEntry.COLUMN_ACCESSORIES, image);
+        values.put(DBContract.ClothingEntry.COLUMN_TOPS, image2);
+        values.put(DBContract.ClothingEntry.COLUMN_BOTTOMS, image3);
+        values.put(DBContract.ClothingEntry.COLUMN_SHOES, image4);
+
+        return db.insert(DBContract.ClothingEntry.TABLE_CLOSET, null, values) != -1;
+    }
+
     public void deleteClothing(String deleteImage)
     {
         SQLiteDatabase db = this.getWritableDatabase();

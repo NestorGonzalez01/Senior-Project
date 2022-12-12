@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ImageManager;
@@ -117,8 +118,6 @@ public class CreateOutfit extends AppCompatActivity {
     public void saveOutfit1 (View v) throws FileNotFoundException {
 
         new DBHandler(this).addOutfit(createOutfitArray[3], createOutfitArray[0], createOutfitArray[1], createOutfitArray[2]);
-        /*for (int i = 0; i < allChosen.size(); i++) {
-            Log.d(TAG, "all Chosen String Images: " + allChosen.get(i));
-        }*/
+        Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
     }
 }

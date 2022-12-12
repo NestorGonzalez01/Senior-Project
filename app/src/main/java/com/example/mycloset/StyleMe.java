@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ColourExtractor;
@@ -208,9 +209,7 @@ public class StyleMe extends AppCompatActivity {
     public void saveOutfit (View v) throws FileNotFoundException{
 
         new DBHandler(this).addOutfit(allChosen.get(0), allChosen.get(1), allChosen.get(2), allChosen.get(3));
-        /*for (int i = 0; i < allChosen.size(); i++) {
-            Log.d(TAG, "all Chosen String Images: " + allChosen.get(i));
-        }*/
+        Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
     }
 
 }

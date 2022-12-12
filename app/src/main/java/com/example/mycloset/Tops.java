@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,20 @@ public class Tops extends AppCompatActivity {
             image.setImageBitmap(pic);
             layout.addView(image);
             int index = i;
+
+
+           ImageButton deleteButton = new ImageButton(this);
+//
+//            deleteButton.setImageDrawable(getDrawable(delete_icon));
+//            layout.addView(deleteButton);
+
+            String uri = "@drawable/delete_icon";
+            int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+
+            //deleteButton = (ImageButton) findViewById(R.id.);
+            Drawable res = getResources().getDrawable(imageResource);
+            deleteButton.setImageDrawable(res);
+
 
 
             image.setOnClickListener(new View.OnClickListener() {

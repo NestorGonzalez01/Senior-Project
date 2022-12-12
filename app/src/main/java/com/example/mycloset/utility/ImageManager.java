@@ -43,7 +43,7 @@ public class ImageManager {
         return this.image;
     }
 
-    private String bitmapToString(Bitmap bitmap) {
+    public String bitmapToString(Bitmap bitmap) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte [] b = baos.toByteArray();

@@ -67,28 +67,3 @@ public class User extends AppCompatActivity {
 
 }
 
-
-
-
-//    public void newUser(View view) {
-//
-//    }
-//
-//    public void addUser(View view) {
-//        startActivity(new Intent(this, AddUser.class));
-//
-//    }
-
-
-   /* button =(Button)
-
-    findViewById(R.id.buttonUser);
-        button.setOnClickListener(new View.OnClickListener()
-
-    {
-        @Override
-        public void onClick (View view){
-        Intent intent = new Intent(User.this, AddUser.class);
-        startActivity(intent);
-    }
-    });*/

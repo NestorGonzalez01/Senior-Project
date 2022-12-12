@@ -13,9 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ImageManager;
 import com.example.mycloset.CreateOutfit;
+
+import java.io.FileNotFoundException;
 
 public class Tops extends AppCompatActivity {
     public Button backButton;
@@ -52,13 +56,17 @@ public class Tops extends AppCompatActivity {
             deleteButton.setImageDrawable(res);
             layout.addView((deleteButton));
 
+//            deleteButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    DBHandler db1 = new DBHandler(getApplicationContext());
+//                    db1.deleteClothing(picString);
+//                    Log.d("hi", "delete button works");
+//                    Intent intent = new Intent(Tops.this, Tops.class);
+//                    startActivity(intent);
+//                }
+//            });
 
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //db.deleteClothing(picString);
-                }
-            });
 
 
             image.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +93,9 @@ public class Tops extends AppCompatActivity {
         });
 
     }
- }
+
+}
+
 
 
 

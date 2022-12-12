@@ -88,18 +88,7 @@ public class CreateOutfit extends AppCompatActivity {
                 }
             });
 
-            //Adding Action to Save
-            button = (Button) findViewById(R.id.saveOutfit1);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (createOutfitArray[4] != null) {
 
-                        Intent intent = new Intent(CreateOutfit.this, ViewOutfits.class);
-                        startActivity(intent);
-                    }
-                }
-            });
 
 
 

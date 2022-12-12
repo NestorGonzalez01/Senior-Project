@@ -4,105 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="@string/EmailTop"
     android:fillViewport="true"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     tools:ignore="SpeakableTextPresentCheck"
     tools:layout_editor_absoluteY="1dp">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#DAD6D6"
-        tools:context=".Accessories">
+        android:background="#EFEAEA"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonAccessBack"
-            android:layout_width="wrap_content"
+            android:id="@+id/button8"
+            android:layout_width="118dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="323dp"
-            android:background="#DAD6D6"
-            android:text="@string/EmailBack"
-            android:textColor="#795548"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="99dp"
-            android:contentDescription="@string/EmailAcess"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/access1"
-            tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="29dp"
-            android:contentDescription="@string/EmailAccess2"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton1"
-            app:srcCompat="@drawable/access2"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="260dp"
-            android:contentDescription="@string/EmailAccess2"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton1"
-            app:srcCompat="@drawable/access3"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="488dp"
-            android:contentDescription="@string/EmailAccess2"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton1"
-            app:srcCompat="@drawable/access4"
-            tools:ignore="MissingConstraints" />
-
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="720dp"
-            android:contentDescription="@string/EmailAccess2"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton1"
-            app:srcCompat="@drawable/access5"
-            tools:ignore="MissingConstraints" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+            android:text="Back" />
+    </LinearLayout>
 </ScrollView>

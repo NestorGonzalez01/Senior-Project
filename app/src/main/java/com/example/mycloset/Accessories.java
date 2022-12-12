@@ -29,7 +29,7 @@ public class Accessories extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottoms);
+        setContentView(R.layout.activity_accessories);
 
         DBHandler db = new DBHandler(this);
         LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);

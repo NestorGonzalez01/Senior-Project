@@ -61,9 +61,7 @@
         <activity
             android:name=".User"
             android:exported="false" />
-        <activity
-            android:name=".ReadUsers"
-            android:exported="false" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="true">

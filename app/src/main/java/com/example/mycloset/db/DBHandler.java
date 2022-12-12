@@ -154,10 +154,10 @@ public class DBHandler extends SQLiteOpenHelper {
         );
     }
 
-    public boolean addClothing(ImageManager imageManager, int dbName, String color) {
+    public boolean addClothing(ImageManager imageManager, int dbName, String color, String userName) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DBContract.ClothingEntry.COLUMN_TITLE, imageManager.getTitle());
+        values.put(DBContract.ClothingEntry.COLUMN_TITLE, userName);
         values.put(DBContract.ClothingEntry.COLUMN_IMAGE, imageManager.getImageString());
         values.put(DBContract.ClothingEntry.COLUMN_COLOR, color);
 
@@ -234,6 +234,11 @@ public class DBHandler extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = getWritableDatabase();
         db.delete("users", "user=?", new String[]{userName});
+        db.delete("tops", "description=?", new String[]{userName});
+        db.delete("bottoms", "description=?", new String[]{userName});
+        db.delete("accessories", "description=?", new String[]{userName});
+        db.delete("shoes", "description=?", new String[]{userName});
+        //db.delete("outfits", "description=?", new String[]{userName});
         db.close();
     }
 

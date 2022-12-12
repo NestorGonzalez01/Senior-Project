@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ImageManager;
@@ -19,75 +21,40 @@ import com.example.mycloset.utility.ImageManager;
 
 public class Bottoms extends AppCompatActivity {
     public Button button;
-    ImageButton imageBottom1, imageBottom2, imageBottom3;
-    private ImageButton selectedImageButton;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.selectedImageButton = (ImageButton) findViewById(R.id.imageBottom1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottoms);
 
-        button = (Button) findViewById(R.id.buttonBack);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Bottoms.this, ViewCloset.class);
-                startActivity(intent);
-            }
-        });
+        DBHandler db = new DBHandler(this);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
+        long size = db.getNumEntries("bottoms");
+        Cursor cursor = db.fetch("bottoms");
 
-        DBHandler dbHandler = new DBHandler(Bottoms.this);
-        Cursor cursor = new DBHandler(this).fetch("tops");
-        cursor.moveToFirst();
-        String id = cursor.getString(0);
-        String image = cursor.getString(1);
+        for (int i = 0; i < size; i++) {
+            ImageButton image = new ImageButton(this);
+            image.setId(i);
+            ImageManager imageManager = new ImageManager(cursor);
+            Bitmap pic = imageManager.getImage();
+            String picString = imageManager.bitmapToString(pic);
+            image.setImageBitmap(pic);
+            layout.addView(image);
+            int index = i;
 
-        Log.d("size", "ID: "+ id);
-        Log.d("size", "Image: "+ image);
 
-        ImageManager imageManager = new ImageManager(cursor);
-
-        int sizeRows = cursor.getCount();
-        ImageButton btn[] = new ImageButton[sizeRows];
-
-        for (int x = 0; x < sizeRows; x++)
-        {
-
-            btn[x] = new ImageButton(this);
-            Bitmap imageDisplayBottoms = imageManager.getImage();
-            selectedImageButton.setImageBitmap(imageDisplayBottoms);
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CreateOutfit.createOutfitArray[1] = picString;
+                    Log.d("poop", "Bottoms string: " + CreateOutfit.createOutfitArray[1]);
+                    Intent intent = new Intent(Bottoms.this, Shoes.class);
+                    startActivity(intent);
+                }
+            });
             cursor.moveToNext();
         }
-        cursor.close();
 
-        imageBottom1 = findViewById(R.id.imageBottom1);
-        imageBottom1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Bottoms.this, Shoes.class);
-                startActivity(intent);
-            }
-        });
-
-        imageBottom2 = findViewById(R.id.imageBottom2);
-        imageBottom2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Bottoms.this, Shoes.class);
-                startActivity(intent);
-            }
-        });
-
-        imageBottom3 = findViewById(R.id.imageBottom3);
-        imageBottom3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Bottoms.this, Shoes.class);
-                startActivity(intent);
-            }
-        });
     }
 }

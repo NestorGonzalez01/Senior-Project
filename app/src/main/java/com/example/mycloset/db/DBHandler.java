@@ -14,6 +14,7 @@ import com.example.mycloset.User;
 import com.example.mycloset.utility.ImageManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -40,6 +41,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     final String CREATE_USERS = "CREATE TABLE users (_id INTEGER PRIMARY KEY, user TEXT)";
 
+    final String CREATE_OUTFITS = "CREATE TABLE outfits (accessories TEXT, tops TEXT, bottoms TEXT, shoes TEXT)";
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -52,6 +55,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(createTable(DBContract.ClothingEntry.TABLE_ACCESSORIES));
         db.execSQL(CREATE_CLOSET);
         db.execSQL(CREATE_USERS);
+        db.execSQL(CREATE_OUTFITS);
     }
 
     @Override
@@ -150,10 +154,10 @@ public class DBHandler extends SQLiteOpenHelper {
         );
     }
 
-    public boolean addClothing(ImageManager imageManager, int dbName, String color) {
+    public boolean addClothing(ImageManager imageManager, int dbName, String color, String userName) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DBContract.ClothingEntry.COLUMN_TITLE, imageManager.getTitle());
+        values.put(DBContract.ClothingEntry.COLUMN_TITLE, userName);
         values.put(DBContract.ClothingEntry.COLUMN_IMAGE, imageManager.getImageString());
         values.put(DBContract.ClothingEntry.COLUMN_COLOR, color);
 
@@ -174,6 +178,26 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return db.insert(TABLE_NAME, null, values) != -1;
     }
+
+    public boolean addOutfit (String image, String image2, String image3, String image4){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBContract.ClothingEntry.COLUMN_ACCESSORIES, image);
+        values.put(DBContract.ClothingEntry.COLUMN_TOPS, image2);
+        values.put(DBContract.ClothingEntry.COLUMN_BOTTOMS, image3);
+        values.put(DBContract.ClothingEntry.COLUMN_SHOES, image4);
+
+        return db.insert(DBContract.ClothingEntry.TABLE_CLOSET, null, values) != -1;
+    }
+
+    public void deleteClothing(String deleteImage)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("TABLE_TOPS", "COLUMN_IMAGE=?", new String[]{deleteImage});
+        db.close();
+    }
+
+
 
     public long getNumEntries(String table) {
         SQLiteDatabase db = getReadableDatabase();
@@ -197,5 +221,37 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return db.insert("users", null, values) != -1;
     }
+
+    public List<String> getAllUsers(){
+        List<String>list = new ArrayList<String>();
+
+        String selectQuery = "SELECT * FROM users";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                list.add(cursor.getString(1));
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return  list;
+    }
+
+    public void deleteName(String userName)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("users", "user=?", new String[]{userName});
+        db.delete("tops", "description=?", new String[]{userName});
+        db.delete("bottoms", "description=?", new String[]{userName});
+        db.delete("accessories", "description=?", new String[]{userName});
+        db.delete("shoes", "description=?", new String[]{userName});
+        //db.delete("outfits", "description=?", new String[]{userName});
+        db.close();
+    }
+
 
 }

@@ -16,6 +16,11 @@ public class DBContract {
         public static final String COLUMN_TITLE = "description";
         public static final String COLUMN_IMAGE = "image";
         public static final String COLUMN_COLOR = "color";
+        public static final String COLUMN_ACCESSORIES = "accessories";
+        public static final String COLUMN_TOPS = "tops";
+        public static final String COLUMN_BOTTOMS = "bottoms";
+        public static final String COLUMN_SHOES = "shoes";
+
 
     }
 

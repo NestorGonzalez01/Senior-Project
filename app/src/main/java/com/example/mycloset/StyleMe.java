@@ -34,6 +34,7 @@ public class StyleMe extends AppCompatActivity {
     ArrayList <String> bottomChosen;
     ArrayList <String> shoeChosen;
     ArrayList <String> accChosen;
+    ArrayList <String> allChosen;
 
 
     //ArrayList <String> randChosen;
@@ -135,7 +136,7 @@ public class StyleMe extends AppCompatActivity {
       /*  Log.d("size", "Table Top size is: " + s);
         Log.d("size", "Table Bottom size is: " + b);
         Log.d("size", "Table Shoes size is: " + sh);
-        Log.d("size", "Tbale Accessories size is "+ acc);*/
+        Log.d("size", "Table Accessories size is "+ acc);*/
 
         //random number chosen for Tops
         int n = new Random().nextInt((int)s);
@@ -160,6 +161,13 @@ public class StyleMe extends AppCompatActivity {
         GetCompare(b, topCursor, bottomCursor, bottomChosen);
         GetCompare(sh, topCursor, shoeCursor, shoeChosen);
         GetCompare(acc, topCursor, accCursor, accChosen);
+
+
+        //Grabbed all of the String images from Tops, Bottoms, Shoes, and Accessories
+        String imTop = topCursor.getString(1);
+        String imBottom = bottomCursor.getString(1);
+        String imShoe = shoeCursor.getString(1);
+        String imAcc = accCursor.getString(1);
 
        //Grab the first image and set it on StyleMe for TOps
         ImageView image1 = findViewById(R.id.imageView4);
@@ -187,6 +195,22 @@ public class StyleMe extends AppCompatActivity {
         Bitmap imageDisplay4 = imageManager4.getImage();
         image4.setImageBitmap(imageDisplay4);
 
+        //Created allChosen array to store the String images in
+        //ViewOutfits database
+        allChosen = new ArrayList<String>();
+
+        allChosen.add(imAcc);
+        allChosen.add(imTop);
+        allChosen.add(imBottom);
+        allChosen.add(imShoe);
+
+    }
+    public void saveOutfit (View v) throws FileNotFoundException{
+
+        new DBHandler(this).addOutfit(allChosen.get(0), allChosen.get(1), allChosen.get(2), allChosen.get(3));
+        /*for (int i = 0; i < allChosen.size(); i++) {
+            Log.d(TAG, "all Chosen String Images: " + allChosen.get(i));
+        }*/
     }
 
 }

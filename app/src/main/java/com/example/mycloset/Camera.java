@@ -8,21 +8,30 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.graphics.drawable.BitmapDrawable;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.net.Uri;
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ColourExtractor;
 import com.example.mycloset.utility.ImageManager;
 import java.io.IOException;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import java.io.InputStream;
+import java.util.List;
+import com.example.mycloset.db.DBHandler;
 
-public class Camera extends AppCompatActivity {
+public class Camera extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private Spinner spinner;
 
     private static final int GALLERY_REQUEST = 100;
     private static final int CAMERA_REQUEST = 200;
@@ -38,8 +47,23 @@ public class Camera extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_closet);
         this.selectedImageView = (ImageView) findViewById(R.id.new_clothing);
-        this.titleEditText = (EditText) findViewById(R.id.new_memory_title);
+        spinner = findViewById(R.id.spinnerUser);
+
+        loadSpinnerData();
+        //this.titleEditText = (EditText) findViewById(R.id.new_memory_title);
+
     }
+
+    private void loadSpinnerData() {
+        DBHandler db = new DBHandler(getApplicationContext());
+        List<String> user = db.getAllUsers();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, user);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(dataAdapter);
+    }
+
 
     public void openGallery(View view) {
         Intent intent = new Intent();
@@ -61,8 +85,14 @@ public class Camera extends AppCompatActivity {
     }
 
     public void tops(View view) {
+
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
-        ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerUser);
+        String user = "";
+        user = spinner.getSelectedItem().toString();
+        Log.d("user", user);
+        ImageManager imageManager = new ImageManager(user, image);
+
         //Log.d("color", "testing");
 
         colourExtractor.paletteAsync(image);
@@ -71,21 +101,27 @@ public class Camera extends AppCompatActivity {
         Log.d("color", "From Tops: " + color);
 //        Log.d("color", "testing_2");
 
-        new DBHandler(this).addClothing(imageManager, 0, color);
+
+        new DBHandler(this).addClothing(imageManager, 0, color, user);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
         startActivity(reload);
+
     }
 
     public void bottoms(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
-        ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerUser);
+        String user = "";
+        user = spinner.getSelectedItem().toString();
+        Log.d("user", user);
+        ImageManager imageManager = new ImageManager(user, image);
 
         colourExtractor.paletteAsync(image);
         color = colourExtractor.getColor();
 
-        new DBHandler(this).addClothing(imageManager, 1, color);
+        new DBHandler(this).addClothing(imageManager, 1, color, user);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -94,12 +130,16 @@ public class Camera extends AppCompatActivity {
 
     public void shoes(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
-        ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerUser);
+        String user = "";
+        user = spinner.getSelectedItem().toString();
+        Log.d("user", user);
+        ImageManager imageManager = new ImageManager(user, image);
 
         colourExtractor.paletteAsync(image);
         color = colourExtractor.getColor();
 
-        new DBHandler(this).addClothing(imageManager, 2, color);
+        new DBHandler(this).addClothing(imageManager, 2, color, user);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -108,9 +148,13 @@ public class Camera extends AppCompatActivity {
 
     public void accessories(View view) {
         Bitmap image = ((BitmapDrawable)selectedImageView.getDrawable()).getBitmap();
-        ImageManager imageManager = new ImageManager(titleEditText.getText().toString(), image);
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerUser);
+        String user = "";
+        user = spinner.getSelectedItem().toString();
+        Log.d("user", user);
+        ImageManager imageManager = new ImageManager(user, image);
 
-        new DBHandler(this).addClothing(imageManager, 3, "any");
+        new DBHandler(this).addClothing(imageManager, 3, "any",user);
 
         Toast.makeText(this, "Saved Successfully!", Toast.LENGTH_LONG).show();
         Intent reload = new Intent(Camera.this, Camera.class);
@@ -136,5 +180,20 @@ public class Camera extends AppCompatActivity {
             Bitmap image = (Bitmap)extras.get("data");
             selectedImageView.setImageBitmap(image);
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
+        String user = parent.getItemAtPosition(i).toString();
+        Toast.makeText(parent.getContext(), "You Selected: " + user, Toast.LENGTH_LONG).show();
+
+
+    }
+
+
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

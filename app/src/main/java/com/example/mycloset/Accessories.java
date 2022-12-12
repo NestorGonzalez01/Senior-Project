@@ -12,16 +12,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ImageManager;
+import com.example.mycloset.CreateOutfit;
 
 import java.lang.reflect.AccessibleObject;
 
 
 public class Accessories extends AppCompatActivity {
     public Button button;
+    public ImageView topsImageView, bottomsImageView, shoesImageView, accessoriesImageView;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,22 +52,12 @@ public class Accessories extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     CreateOutfit.createOutfitArray[3] = picString;
-                    String topString = CreateOutfit.createOutfitArray[0];
-                    Bitmap topBitmap = imageManager.stringToBitmap(topString);
-                    String bottomString = CreateOutfit.createOutfitArray[1];
-                    Bitmap bottomBitmap = imageManager.stringToBitmap(bottomString);
-                    String shoesString = CreateOutfit.createOutfitArray[2];
-                    Bitmap shoesBitmap = imageManager.stringToBitmap(shoesString);
-                    String accessoriesString = CreateOutfit.createOutfitArray[3];
-                    Bitmap accessoriesBitmap = imageManager.stringToBitmap(topString);
-
-                    Log.d("Top: ", " Top string is: " + topBitmap);
-                    Log.d("Bottom: ", "Bottom string is: " + bottomBitmap);
-                    Log.d("Shoes: ", "Shoes string is: " + shoesBitmap);
-                    Log.d("Accessories: ", "Accessories string is: " + accessoriesBitmap);
+                    CreateOutfit.createOutfitArray[4] = "yes";
+                    Log.d("Array4:", "Array 4 should be: " + CreateOutfit.createOutfitArray[4]);
 
                     Intent intent = new Intent(Accessories.this, CreateOutfit.class);
                     startActivity(intent);
+
                 }
             });
             cursor.moveToNext();

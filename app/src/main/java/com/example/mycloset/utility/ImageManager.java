@@ -52,19 +52,19 @@ public class ImageManager {
 
 public Bitmap stringToBitmap(String string) {
     Bitmap bitmap = null;
-    Log.d("Checker", string);
+    //Log.d("Checker", string);
     try {
-        Log.d("Checker", "Adapter-1");
+       Log.d("Checker", "Adapter-1");
         byte[] decodeImage = Base64.decode(string, Base64.DEFAULT);
-        Log.d("Checker", "Adapter-2");
+       // Log.d("Checker", "Adapter-2");
         bitmap = BitmapFactory.decodeByteArray(decodeImage, 0 , decodeImage.length);
-        Log.d("Checker", "Adapter-3");
+       // Log.d("Checker", "Adapter-3");
 
     } catch (Exception e) {
-        Log.d("Checker", "Adapter-E");
+      //  Log.d("Checker", "Adapter-E");
         e.printStackTrace();
     }
-    Log.d("Checker", "Adapter-R");
+   // Log.d("Checker", "Adapter-R");
     return bitmap;
 }
 

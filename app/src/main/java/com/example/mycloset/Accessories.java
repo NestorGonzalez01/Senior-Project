@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,8 +24,6 @@ import java.lang.reflect.AccessibleObject;
 
 public class Accessories extends AppCompatActivity {
     public Button button;
-    public ImageView topsImageView, bottomsImageView, shoesImageView, accessoriesImageView;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,13 +38,19 @@ public class Accessories extends AppCompatActivity {
 
         for (int i = 0; i < size; i++) {
             ImageButton image = new ImageButton(this);
-            image.setId(i);
             ImageManager imageManager = new ImageManager(cursor);
             Bitmap pic = imageManager.getImage();
             String picString = imageManager.bitmapToString(pic);
             image.setImageBitmap(pic);
             layout.addView(image);
-            int index = i;
+
+            //Displaying delete button for each image button displayed
+            ImageButton deleteButton = new ImageButton(this);
+            String uri = "@drawable/delete_icon";
+            int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+            Drawable res = getResources().getDrawable(imageResource);
+            deleteButton.setImageDrawable(res);
+            layout.addView((deleteButton));
 
 
             image.setOnClickListener(new View.OnClickListener() {
@@ -53,8 +58,6 @@ public class Accessories extends AppCompatActivity {
                 public void onClick(View v) {
                     CreateOutfit.createOutfitArray[3] = picString;
                     CreateOutfit.createOutfitArray[4] = "yes";
-                    Log.d("Array4:", "Array 4 should be: " + CreateOutfit.createOutfitArray[4]);
-
                     Intent intent = new Intent(Accessories.this, CreateOutfit.class);
                     startActivity(intent);
 

@@ -19,8 +19,6 @@ import com.example.mycloset.CreateOutfit;
 
 public class Tops extends AppCompatActivity {
     public Button backButton;
-    ImageManager im;
-    public Bitmap imageTop;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,7 +32,9 @@ public class Tops extends AppCompatActivity {
         Cursor cursor = db.fetch("tops");
 
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) 
+        {
+            //Displaying images from database
             ImageButton image = new ImageButton(this);
             image.setId(i);
             ImageManager imageManager = new ImageManager(cursor);
@@ -44,26 +44,27 @@ public class Tops extends AppCompatActivity {
             layout.addView(image);
             int index = i;
 
-
-           ImageButton deleteButton = new ImageButton(this);
-//
-//            deleteButton.setImageDrawable(getDrawable(delete_icon));
-//            layout.addView(deleteButton);
-
+            //Displaying delete button for each image button displayed
+            ImageButton deleteButton = new ImageButton(this);
             String uri = "@drawable/delete_icon";
             int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-
-            //deleteButton = (ImageButton) findViewById(R.id.);
             Drawable res = getResources().getDrawable(imageResource);
             deleteButton.setImageDrawable(res);
+            layout.addView((deleteButton));
 
+
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //db.deleteClothing(picString);
+                }
+            });
 
 
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     CreateOutfit.createOutfitArray[0] = picString;
-                    Log.d("poop", "Top string: " + CreateOutfit.createOutfitArray[0]);
                     Intent intent = new Intent(Tops.this, Bottoms.class);
                     startActivity(intent);
                 }

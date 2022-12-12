@@ -18,6 +18,15 @@
         android:background="@drawable/closet"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:text="Bottoms"
+            android:textAlignment="center"
+            android:textColor="#0E0D0D"
+            android:textSize="34sp" />
+
         <Button
             android:id="@+id/button8"
             android:layout_width="118dp"

@@ -194,7 +194,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void deleteClothing(String deleteImage)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("TABLE_TOPS", "COLUMN_IMAGE=?", new String[]{deleteImage});
+        db.delete("TABLE_TOPS", "image=?", new String[]{deleteImage});
         db.close();
     }
 
@@ -259,6 +259,13 @@ public class DBHandler extends SQLiteOpenHelper {
         db.delete("accessories", "description=?", new String[]{userName});
         db.delete("shoes", "description=?", new String[]{userName});
         //db.delete("outfits", "description=?", new String[]{userName});
+        db.close();
+    }
+
+    public void deleteTop(String top)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete("tops", "image=?", new String[]{top});
         db.close();
     }
 

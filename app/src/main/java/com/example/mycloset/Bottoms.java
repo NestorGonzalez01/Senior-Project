@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +44,14 @@ public class Bottoms extends AppCompatActivity {
             layout.addView(image);
             int index = i;
 
+            //Displaying delete button for each image button displayed
+            ImageButton deleteButton = new ImageButton(this);
+            String uri = "@drawable/delete_icon";
+            int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+            Drawable res = getResources().getDrawable(imageResource);
+            deleteButton.setImageDrawable(res);
+            layout.addView((deleteButton));
+
 
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -55,6 +64,16 @@ public class Bottoms extends AppCompatActivity {
             });
             cursor.moveToNext();
         }
+
+        //back button
+        button = (Button) findViewById(R.id.button8);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Bottoms.this, ViewCloset.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

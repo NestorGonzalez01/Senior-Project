@@ -48,6 +48,7 @@ public class Bottoms extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     CreateOutfit.createOutfitArray[1] = picString;
+                    Log.d("poop", "Bottoms string: " + CreateOutfit.createOutfitArray[1]);
                     Intent intent = new Intent(Bottoms.this, Shoes.class);
                     startActivity(intent);
                 }

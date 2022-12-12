@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ImageManager;
 
 
@@ -35,11 +38,16 @@ public class CreateOutfit extends AppCompatActivity {
 
         Log.d("Array4:", "Array 4 should be blank:" + createOutfitArray[4]);
         if(createOutfitArray[4] != null) {
+
+
+
             Log.d("Array4", "This should display images " + createOutfitArray[4]);
+
+            DBHandler db = new DBHandler(this);
+            Cursor topsCursor = db.fetch("tops");
             String topString = CreateOutfit.createOutfitArray[0];
-            Log.d("test", "Top string: " + topString);
-            Bitmap topBitmap = im.stringToBitmap(topString);
-            Log.d("test", "Top");
+            ImageManager imageManager1 = new ImageManager(topsCursor);
+            Bitmap topBitmap = imageManager1.stringToBitmap(topString);
             ImageView topsImageView = findViewById(R.id.topImageView);
             topsImageView.setImageBitmap(topBitmap);
 

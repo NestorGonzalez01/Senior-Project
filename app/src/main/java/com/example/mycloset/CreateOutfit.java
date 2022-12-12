@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import com.example.mycloset.db.DBHandler;
 import com.example.mycloset.utility.ImageManager;
 
+import java.io.FileNotFoundException;
+
 
 public class CreateOutfit extends AppCompatActivity {
 
@@ -86,14 +88,19 @@ public class CreateOutfit extends AppCompatActivity {
             });
 
             //Adding Action to Save
-            button = (Button) findViewById(R.id.button3);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(CreateOutfit.this, ViewOutfits.class);
-                    startActivity(intent);
-                }
-            });
+//            button = (Button) findViewById(R.id.button3);
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//
+//
+//                    Intent intent = new Intent(CreateOutfit.this, ViewOutfits.class);
+//                    startActivity(intent);
+//                }
+//            });
+
+
 
             //Adding Action to Add From Closet
             imageView3 = findViewById(R.id.imageView3);
@@ -105,5 +112,13 @@ public class CreateOutfit extends AppCompatActivity {
                 }
             });
 
+
+    }
+    public void saveOutfit1 (View v) throws FileNotFoundException {
+
+        new DBHandler(this).addOutfit(createOutfitArray[3], createOutfitArray[0], createOutfitArray[1], createOutfitArray[2]);
+        /*for (int i = 0; i < allChosen.size(); i++) {
+            Log.d(TAG, "all Chosen String Images: " + allChosen.get(i));
+        }*/
     }
 }

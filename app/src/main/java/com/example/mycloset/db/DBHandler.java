@@ -194,7 +194,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void deleteClothing(String deleteImage)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("TABLE_TOPS", "image=?", new String[]{deleteImage});
+        db.delete("tops", "image=?", new String[]{deleteImage});
         db.close();
     }
 

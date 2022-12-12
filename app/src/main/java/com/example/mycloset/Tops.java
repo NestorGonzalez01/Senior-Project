@@ -20,6 +20,8 @@ import com.example.mycloset.CreateOutfit;
 public class Tops extends AppCompatActivity {
     public Button backButton;
 
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +38,11 @@ public class Tops extends AppCompatActivity {
         {
             //Displaying images from database
             ImageButton image = new ImageButton(this);
-            image.setId(i);
             ImageManager imageManager = new ImageManager(cursor);
             Bitmap pic = imageManager.getImage();
             String picString = imageManager.bitmapToString(pic);
             image.setImageBitmap(pic);
             layout.addView(image);
-            int index = i;
 
             //Displaying delete button for each image button displayed
             ImageButton deleteButton = new ImageButton(this);
@@ -51,12 +51,16 @@ public class Tops extends AppCompatActivity {
             Drawable res = getResources().getDrawable(imageResource);
             deleteButton.setImageDrawable(res);
             layout.addView((deleteButton));
+            Log.d("hi:", "Displaying trash icons");
+
 
 
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //db.deleteClothing(picString);
+                    Log.d("hi:", "Delete button works: ");
+                    DBHandler db1 = new DBHandler(getApplicationContext());
+                    db1.deleteClothing(picString);
                 }
             });
 
@@ -85,6 +89,7 @@ public class Tops extends AppCompatActivity {
         });
 
     }
+
  }
 
 

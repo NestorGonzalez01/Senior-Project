@@ -39,12 +39,8 @@ public class CreateOutfit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_outfit);
 
-        Log.d("Array4:", "Array 4 should be blank:" + createOutfitArray[4]);
         if(createOutfitArray[4] != null) {
 
-
-
-            Log.d("Array4", "This should display images " + createOutfitArray[4]);
 
             DBHandler db = new DBHandler(this);
             Cursor topsCursor = db.fetch("tops");
@@ -74,6 +70,21 @@ public class CreateOutfit extends AppCompatActivity {
             Bitmap accessoriesBitmap = imageManager4.stringToBitmap(accessoriesString);;
             ImageView accessoriesImageView = findViewById(R.id.accessoriesImageView);
             accessoriesImageView.setImageBitmap(accessoriesBitmap);
+
+            //Adding Action to Save
+            button = (Button) findViewById(R.id.saveOutfit1);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+
+                        Intent intent = new Intent(CreateOutfit.this, ViewOutfits.class);
+                        startActivity(intent);
+
+                }
+            });
+
+
         }
 
 
@@ -88,18 +99,6 @@ public class CreateOutfit extends AppCompatActivity {
                 }
             });
 
-            //Adding Action to Save
-            button = (Button) findViewById(R.id.saveOutfit1);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (createOutfitArray[4] != null) {
-
-                        Intent intent = new Intent(CreateOutfit.this, ViewOutfits.class);
-                        startActivity(intent);
-                    }
-                }
-            });
 
 
 
